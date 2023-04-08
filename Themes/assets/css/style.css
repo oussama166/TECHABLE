@@ -4,7 +4,7 @@
 
 /* Root  */
 
-::root {
+:root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -71,4 +71,236 @@
   --bs-link-hover-color: #0a58ca;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
+}
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--bs-body-font-family);
+  overflow-x: hidden;
+
+}
+
+nav {
+  width: 100wh;
+  max-height: 5rem;
+  padding-inline-start: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--bs-gray-900);
+}
+
+.navlg {
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navmb {
+  display: none;
+}
+
+nav .navTitle {
+  font-size: 1.4rem;
+}
+
+nav .navSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav .right-section {
+  width: 50%;
+}
+
+nav .right-section ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  flex-grow: 1;
+}
+
+nav .right-section li {
+  text-decoration: none;
+  margin-top: 4px;
+  color: rgb(34, 34, 34);
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: Basis-Regular, sans-serif;
+  line-height: 145%;
+  letter-spacing: -0.16px;
+}
+
+nav .left-section .button {
+  width: 9.375rem;
+  height: 80px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-right: 1px solid var(--bs-gray-900);
+}
+
+/* Responsive nav bar */
+@media screen and (max-width: 816px) {
+  .navlg {
+    display: none;
+  }
+
+  .navmb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  nav .navSection {
+    gap: 20px;
+  }
+
+  .visuallyHidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  .hamburger {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: .9375rem;
+    z-index: 100;
+  }
+
+  nav .left-section .button {
+    border: none;
+  }
+
+  .hamburger .bar {
+    padding: 0;
+    width: 30px;
+    height: 4px;
+    background-color: var(--bs-black);
+    display: block;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+  }
+
+  .bar1 {
+    top: 0;
+  }
+
+  .bar2,
+  .bar3 {
+    top: 13.5px;
+  }
+
+  .bar3 {
+    right: 0;
+  }
+
+  .bar4 {
+    bottom: 0;
+  }
+
+  .hamburger2 .bar2,
+  .hamburger3 .bar3,
+  .hamburger4 .bar4 {
+    top: 13.5px;
+  }
+
+  .hamburger4 .bar5 {
+    bottom: 0px;
+  }
+
+  .hamburger4 .bar {
+    transition: all 0.4s ease-in-out, transform 0.4s ease-in-out 0.4s;
+  }
+
+  .hamburger4 .bar2 {
+    width: 1px;
+    transform: rotate(90deg);
+    left: 13.5px;
+  }
+
+  .hamburger4 .bar3 {
+    width: 1px;
+    left: 13.5px;
+
+  }
+
+  .checkbox4:checked + label > .hamburger4 > .bar1 {
+    top: 13.5px;
+    background-color: transparent;
+  }
+
+  .checkbox4:checked + label > .hamburger4 > .bar2 {
+    left: 0px;
+    width: 30px;
+    transform: rotate(45deg);
+  }
+
+  .checkbox4:checked + label > .hamburger4 > .bar3 {
+    left: 0;
+    width: 30px;
+    transform: rotate(-45deg);
+  }
+
+  .checkbox4:checked + label > .hamburger4 > .bar4 {
+    background-color: transparent;
+  }
+
+  .checkbox4:checked + label > .hamburger4 > .bar5 {
+    bottom: 13.5px;
+    background-color: transparent;
+  }
+
+  .humbrger {
+    position: relative;
+    z-index: 100;
+  }
+
+  .wrapper {
+    position: absolute;
+    top: -11px;
+    right: -1000px;
+    width: 400px;
+    background-color: var(--bs-body-bg);
+    height: 100vh;
+    z-index: -1;
+    transition: 0.6s cubic-bezier(.06, .71, .84, .31);
+  }
+
+  .wrapper li {
+    font-size: 1.5rem;
+    padding: 10px;
+    transform: translateY(100px);
+  }
+
+  .wrapper li:last-child {
+    font-size: 1rem;
+    border: none;
+  }
+
+  .wrapper-show {
+    top: -10px;
+    right: -100%;
+    transition: 0.6s cubic-bezier(.06, .71, .84, .31);
+  }
 }

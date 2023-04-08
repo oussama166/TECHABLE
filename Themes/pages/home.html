@@ -1,14 +1,82 @@
 <!-- Static code -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<!-- Static code -->
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <title>Document</title>
+  </head>
+  <!-- Static code -->
+  <body>
+    <!-- NavBar  -->
+    <nav>
+      <div class="navlg">
+        <div class="navSection right-section navlg">
+          <h1 class='navTitle'>tech:learning</h1>
+          <ul>
+            <li>Features</li>
+            <li>Prices</li>
+            <li>Challangess</li>
+          </ul>
+        </div>
+        <div class="navSection left-section">
+          <button class="button ">Log in</button>
+          <button class="button ">join for free</button>
+        </div>
+      </div>
+
+      <!-- For mobile design -->
+
+      <div class="navmb">
+        <div class="navSection right-section">
+          <h1 class='navTitle'>tech:learning</h1>
+        </div>
+        <div class="navSection left-section">
+          <button class="button">join for free</button>
+          <div class="humbrger">
+            <input type="checkbox" id="checkbox4" class="checkbox4
+              visuallyHidden">
+            <label for="checkbox4">
+              <div class="hamburger hamburger4">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+                <span class="bar bar4"></span>
+                <span class="bar bar5"></span>
+              </div>
+            </label>
+            <div aria-hidden="true" class="wrapper">
+              <ul>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li><button>log in</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- End NavBar  -->
+
+    <script>
+      const check = document.getElementById('checkbox4')
+      check.addEventListener('click',(e)=>{
+        const wrapper = document.querySelector('.wrapper')
+        if(e.target.checked){
+          wrapper.classList.add('wrapper-show')
+        }
+        else{
+          wrapper.classList.remove('wrapper-show')
+        }
+      })
+    </script>
+
+
+  </body>
 </html>
