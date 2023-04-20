@@ -1,82 +1,149 @@
 <!-- Static code -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
-    <link rel="stylesheet" href="../assets/css/normalize.css">
-    <title>Document</title>
-  </head>
-  <!-- Static code -->
-  <body>
-    <!-- NavBar  -->
-    <nav>
-      <div class="navlg">
-        <div class="navSection right-section navlg">
-          <h1 class='navTitle'>tech:learning</h1>
-          <ul>
-            <li>Features</li>
-            <li>Prices</li>
-            <li>Challangess</li>
-          </ul>
-        </div>
-        <div class="navSection left-section">
-          <button class="button ">Log in</button>
-          <button class="button ">join for free</button>
-        </div>
-      </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+            text">
+        <link rel="stylesheet" href="../assets/css/style.css"/>
+        <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
+        <link rel="stylesheet" href="../assets/css/normalize.css"/>
+        <title>Document</title>
+    </head>
+    <!-- Static code -->
+    <body>
+        <!-- NavBar  -->
 
-      <!-- For mobile design -->
-
-      <div class="navmb">
-        <div class="navSection right-section">
-          <h1 class='navTitle'>tech:learning</h1>
-        </div>
-        <div class="navSection left-section">
-          <button class="button">join for free</button>
-          <div class="humbrger">
-            <input type="checkbox" id="checkbox4" class="checkbox4
-              visuallyHidden">
-            <label for="checkbox4">
-              <div class="hamburger hamburger4">
-                <span class="bar bar1"></span>
-                <span class="bar bar2"></span>
-                <span class="bar bar3"></span>
-                <span class="bar bar4"></span>
-                <span class="bar bar5"></span>
-              </div>
-            </label>
-            <div aria-hidden="true" class="wrapper">
-              <ul>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-                <li><button>log in</button></li>
-              </ul>
+        <nav>
+            <div class="navlg">
+                <div class="navSection right-section navlg">
+                    <h1 class='navTitle'>tech:learning</h1>
+                    <ul>
+                        <li>Features</li>
+                        <li>Prices</li>
+                        <li>Challangess</li>
+                    </ul>
+                </div>
+                <div class="navSection left-section">
+                    <button class="button ">Log in</button>
+                    <button class="button ">join for free</button>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </nav>
 
-    <!-- End NavBar  -->
+            <!-- For mobile design -->
 
-    <script>
-      const check = document.getElementById('checkbox4')
-      check.addEventListener('click',(e)=>{
-        const wrapper = document.querySelector('.wrapper')
-        if(e.target.checked){
-          wrapper.classList.add('wrapper-show')
-        }
-        else{
-          wrapper.classList.remove('wrapper-show')
-        }
-      })
-    </script>
+            <div class="navmb">
+                <div class="navSection right-section">
+                    <h1 class='navTitle'>tech:learning</h1>
+                </div>
+                <div class="navSection left-section">
+                    <button class="button">join for free</button>
+                    <div class="humbrger">
+                        <input type="checkbox" id="checkbox4" class="checkbox4
+                            visuallyHidden">
+                        <label for="checkbox4">
+                            <div class="hamburger hamburger4">
+                                <span class="bar bar1"></span>
+                                <span class="bar bar2"></span>
+                                <span class="bar bar3"></span>
+                                <span class="bar bar4"></span>
+                                <span class="bar bar5"></span>
+                            </div>
+                        </label>
+                        <div aria-hidden="true" class="wrapper">
+                            <ul>
+                                <li>test</li>
+                                <li>test</li>
+                                <li>test</li>
+                                <li>
+                                    <button>log in</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
+        <!-- End NavBar  -->
+        <!-- Footer -->
 
-  </body>
+        <footer>
+            <div class="footer_links">
+                <div class="footer_description">
+                    <div class="footer_header">
+                        <h1>tech:learning</h1>
+                    </div>
+                    <div class="description_footer">
+                        <p>
+                            Join the more than 100,000 creators who use Teachable
+                            to share their knowledge. Easily create an online
+                            course or coaching business with our powerful yet
+                            simple all-in-one platform.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="footer_link">
+                    <div>
+                        <div class="header">
+                            <span>Explore</span>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li>Features</li>
+                                <li>Pricing</li>
+                                <li>Examples</li>
+                                <li>Newsletter</li>
+                                <li>Community</li>
+                                <li>Podcast</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="header">
+                            <span>Company</span>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li>About</li>
+                                <li>Careers</li>
+                                <li>Blog</li>
+                                <li>Press</li>
+                                <li>Partners</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="header">
+                            <span>Support</span>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li>Knowledge Base</li>
+                                <li>Contact Support</li>
+                                <li>Contact Sales</li>
+                                <li>Privacy Policy</li>
+                                <li>Terms of Use</li>
+                                <li>Content Guidelines</li>
+                                <li>House Rules</li>
+                                <li>Cookies Policy</li>
+                                <li>Ethics Line</li>
+                                <li>Accessibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer_footer">Hello</div>
+        </footer>
+        
+        <!-- End Footer -->
+
+        <!-- Script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+        <script src="../assets/js/script.js"></script>
+    </body>
 </html>
