@@ -1,5 +1,3 @@
-Certainly! Here's the revised version with the last icon in one line:
-
 # 🎓 E-LEARNING (DJANGO)
 
 An e-learning project created with Django is a web application that enables users to access educational content online. Django is a powerful open-source Python framework designed for efficient web development. You can build an e-learning platform using Django 3.0.
