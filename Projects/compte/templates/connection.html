@@ -1,0 +1,34 @@
+{% extends 'baseCompte.html' %}
+
+{% block contentCompte %}
+
+<!-- main secrion -->
+<section class="main">
+  <div class="formHeader">
+    <h1> Log in to Teachable </h1>
+  </div>
+  <!-- Statci code  -->
+  <form action="" class="formMain">
+    <div class="input">
+      <label for="email">
+        Email Adresse
+      </label>
+      <input type="email" id="email" required/>
+      <span class="error">This field is required</span>
+    </div>
+    <div class="input">
+      <label for="password">
+        Password
+      </label>
+      <input type="password" id="password" required/>
+      <span class="error">This field is required</span>
+    </div>
+
+    <!-- Button confirmation -->
+    <button type="submit">Log In</button>
+    <span class="frPass"><a href="#">Forgot Password?</a></span>
+    <span>Don't have an account? <a href="{% url 'register' %}">Sign Up</a> </span>
+  </form>
+</section>
+
+{% endblock contentCompte %}

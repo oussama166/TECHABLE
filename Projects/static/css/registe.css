@@ -1,0 +1,319 @@
+/* Root */
+
+/* Root  */
+
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-black: #000;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-salte: #6b6d7c;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0.15),
+    hsla(0, 0%, 100%, 0)
+  );
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #212529;
+  --bs-body-bg: #fff;
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: #dee2e6;
+  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-2xl: 2rem;
+  --bs-border-radius-pill: 50rem;
+  --bs-link-color: #0d6efd;
+  --bs-link-hover-color: #0a58ca;
+  --bs-code-color: #d63384;
+  --bs-highlight-bg: #fff3cd;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+header {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid black;
+}
+.title {
+  margin: 1rem 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-style: 0.99rem;
+  text-align: center;
+}
+.main {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.main .formHeader h1 {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  animation: fadeIn 0.5s cubic-bezier(0.32, 0, 0.67, 0);
+}
+.main .formHeader h4 {
+  color: var(--bs-gray);
+  font-family: var(--bs-font-sans-serif);
+  font-weight: var(--bs-body-font-weight);
+  font-size: 0.9rem;
+  margin: 3rem 0 1rem 0;
+}
+.main .formHeader h4 > span {
+  color: var(--bs-black);
+  font-weight: 600;
+}
+
+/* Form section  */
+.formMain {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-content: center;
+  justify-content: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.input label {
+  color: var(--bs-salte);
+  font-family: var(--bs-body-font-family);
+  font-size: 14.224px;
+  font-size: 0.889rem;
+  line-height: 21.328px;
+  line-height: 1.333rem;
+  font-weight: 400;
+}
+
+.input input {
+  height: 30px;
+  width: 300px;
+  padding: 8px 32px 8px 16px;
+  border: 1px solid var(--bs-gray-400);
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+}
+.input input:active,
+.input input:focus {
+  border-color: black;
+  transition: 0.5s ease-in-out;
+}
+.input input .input_errer {
+  border-color: red;
+  transition: 0.5s ease-in-out;
+}
+.input .error {
+  font-family: var(--bs-body-font-family);
+  color: var(--bs-red);
+  display: none;
+}
+
+.agrement input {
+  border-color: red;
+}
+
+.control {
+  font-family: var(--bs-body-font-family);
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--bs-salte);
+}
+.control > a {
+  color: var(--bs-black);
+  text-decoration: underline;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: white;
+}
+
+.control input:checked ~ .control_indicator {
+  background: #ffffff;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: #fff;
+}
+
+.control input:disabled ~ .control_indicator {
+  background: #ffffff;
+  opacity: 1;
+  pointer-events: none;
+}
+.control_indicator:after {
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.control-checkbox .control_indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #000000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #ffffff;
+}
+.control-checkbox .control_indicator::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-left: -1.3rem;
+  margin-top: -1.3rem;
+  background: #000000;
+  border-radius: 3rem;
+  opacity: 0.6;
+  z-index: 99999;
+  transform: scale(0);
+}
+@keyframes s-ripple {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes s-ripple-dup {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+.control-checkbox input + .control_indicator::before {
+  animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+  animation-name: s-ripple-dup;
+}
+
+.formMain button {
+  width: 160px;
+  height: 36px;
+  padding: 0.5rem 2rem;
+  background-color: var(--bs-black);
+  color: var(--bs-white);
+  border-radius: 8px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.frPass  {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-skip-ink: all;
+}
+.formMain span {
+  font-family: var(--bs-body-font-family);
+  font-size: 0.875rem;
+  margin: 0 auto;
+}
+
+.formMain span > a {
+  text-decoration: underline;
+}

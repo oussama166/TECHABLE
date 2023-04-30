@@ -1,0 +1,58 @@
+{% extends 'baseCompte.html' %}
+
+{% block contentCompte %}
+<section class="main">
+  <div class="formHeader">
+    <h1>Get started with Teachable</h1>
+    <h4>
+      Join more than 100,000 creators who've sold over <span>$1 billion</span>
+      in courses and coaching.
+    </h4>
+  </div>
+  <!-- dynamic code  -->
+  <form action="" class="formMain">
+    <div class="input">
+      <label for="name">
+        Full Name
+      </label>
+      <input type="text" id="name" required/>
+      <span class="error">This field is required</span>
+    </div>
+    <div class="input">
+      <label for="email">
+        Email Adresse
+      </label>
+      <input type="email" id="email" required/>
+      <span class="error">This field is required</span>
+    </div>
+    <div class="input">
+      <label for="pass">
+        Password
+      </label>
+      <input type="password" id="pass" required/>
+      <span class="error">This field is required</span>
+    </div>
+    <div class="input">
+      <label for="passConf">
+        Confirm Password
+      </label>
+      <input type="password" id="passConf" required/>
+      <span class="error">This field is required</span>
+    </div>
+    <div class="agrement">
+      <label class="control control-checkbox">
+        I agree to the <a href="#"> Terms of Use</a> and <a href="#">Privacy
+          Policy</a>
+        <input type="checkbox"  />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+
+    <!-- Button confirmation -->
+    <button type="submit">Create Account</button>
+    <span>Already have an account? <a href="{% url 'conncetion' %}">Log In</a>
+    </span>
+  </form>
+</section>
+
+{% endblock contentCompte %}
