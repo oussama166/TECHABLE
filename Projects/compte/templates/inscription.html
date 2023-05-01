@@ -10,33 +10,34 @@
     </h4>
   </div>
   <!-- dynamic code  -->
-  <form action="" class="formMain">
+  <form action="" class="formMain" method="POST">
+    {% csrf_token %}
     <div class="input">
       <label for="name">
         Full Name
       </label>
-      <input type="text" id="name" required/>
+      <input type="text" id="name" Name="name" required/>
       <span class="error">This field is required</span>
     </div>
     <div class="input">
       <label for="email">
         Email Adresse
       </label>
-      <input type="email" id="email" required/>
+      <input type="email" id="email" Name="email" required/>
       <span class="error">This field is required</span>
     </div>
     <div class="input">
       <label for="pass">
         Password
       </label>
-      <input type="password" id="pass" required/>
+      <input type="password" id="pass" Name="password" required/>
       <span class="error">This field is required</span>
     </div>
     <div class="input">
       <label for="passConf">
         Confirm Password
       </label>
-      <input type="password" id="passConf" required/>
+      <input type="password" id="passConf" Name="passConf" required/>
       <span class="error">This field is required</span>
     </div>
     <div class="agrement">
