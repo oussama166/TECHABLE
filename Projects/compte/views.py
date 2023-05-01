@@ -8,9 +8,7 @@ def connection(request):
         username= request.POST.get("name")
         email= request.POST.get("email")
         password= request.POST.get("password")
-        user1= authenticate( username=username
-                            ,email=email,
-                          password=password)
+        user1= authenticate( username=username,email=email,password=password)
         if user1:
           return render(request,'inscription.html',{})
 
