@@ -8,7 +8,15 @@
     <h1> Log in to Teachable </h1>
   </div>
   <!-- Statci code  -->
-  <form action="" class="formMain">
+  <form action="" class="formMain" method="POST">
+    {% csrf_token %}
+    <div class="input">
+      <label for="name">
+        Full Name
+      </label>
+      <input type="text" id="name" Name="name" required/>
+      <span class="error">This field is required</span>
+    </div>
     <div class="input">
       <label for="email">
         Email Adresse
