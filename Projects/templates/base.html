@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+      <!-- font-awesome The iconic SVG, font, and CSS toolkit -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Home</title>
   </head>
   <!-- Static code -->
@@ -30,8 +35,8 @@
           </ul>
         </div>
         <div class="navSection left-section">
-          <button class="button">Log in</button>
-          <button class="button">join for free</button>
+          <button class="button"><a href="{% url 'conncetion' %}"> Log in </a> </button>
+          <button class="button"><a href="{% url 'register' %}">join for free</a></button>
         </div>
       </div>
 
