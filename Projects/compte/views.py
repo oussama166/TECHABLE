@@ -1,11 +1,8 @@
-# <<<<<<< HEAD
 from django.shortcuts import render
 from django.contrib.auth import get_user_model,login
-# =======
 from django.shortcuts import render,redirect
 from techLearn.views import home
 from django.contrib.auth import get_user_model,login,authenticate,logout
-# >>>>>>> 
 # Create your views here.
 USER= get_user_model()
 def connection(request):
@@ -32,3 +29,6 @@ def inscription(request):
     login(request,user)
     return render(request,'connection.html',{})
   return render(request,'inscription.html',{})
+
+def admin(request):
+  return render(request,'admin.html',{})

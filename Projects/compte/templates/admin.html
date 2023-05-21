@@ -1,0 +1,170 @@
+{% load static %}
+<!-- Static code -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,text">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
+    <link rel="stylesheet" href="../assets/css/normalize.css" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <!-- font-awesome The iconic SVG, font, and CSS toolkit -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Admin Page</title>
+  </head>
+  <!-- Static code -->
+  <body>
+    <main>
+      <!-- Side Bar -->
+      <section class="left">
+        <div class="header">
+          <h1>Tech:able</h1>
+          <div class="logo">
+            <div class="userImg avatarDiv">
+              <img class="avatar" alt="user logo" />
+            </div>
+            <div class="userInfo">
+              <span class="userName">oussama ouardi</span>
+              <span class="mailUser">oussamaouardi80@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="choices">
+          <div class="choice mySchool ">
+            <i class="fa-solid fa-school"></i> My Schools
+          </div>
+          <div class="choice addOn ">
+            <i class="fa-solid fa-circle-plus"></i> ADD
+          </div>
+          <div class="choice setting active">
+            <i class="fa-solid fa-gear"></i> Settings
+          </div>
+          <div class="choice">
+            <i class="fa-solid fa-right-from-bracket"></i> logout
+          </div>
+        </div>
+      </section>
+      <!-- Side Bar End -->
+
+      <!-- My Schools section -->
+      <section class="right containers mySchool disable">
+        <div class="schoolOwn">
+          <h1>Schools I Own</h1>
+          <div class="cards">
+            <div class="card">
+              <div class="cardImg">
+              </div>
+              <div class="cardInfo">
+                <h1 class="schoolName">Oussama Ouardi's School</h1>
+                <p class="schoolDomain">oussama-ouardi-s-school.teachable.com</p>
+              </div>
+              <div class="cardTicket">Online</div>
+              <div class="cardLogo"></div>
+            </div>
+            <div class="card">
+              <div class="cardImg">
+              </div>
+              <div class="cardInfo">
+                <h1 class="schoolName">Oussama Ouardi's School</h1>
+                <p class="schoolDomain">oussama-ouardi-s-school.teachable.com</p>
+              </div>
+              <div class="cardTicket">Online</div>
+              <div class="cardLogo"></div>
+            </div>
+            <div class="card">
+              <div class="cardImg">
+              </div>
+              <div class="cardInfo">
+                <h1 class="schoolName">Oussama Ouardi's School</h1>
+                <p class="schoolDomain">oussama-ouardi-s-school.teachable.com</p>
+              </div>
+              <div class="cardTicket">Online</div>
+              <div class="cardLogo"></div>
+            </div>
+            <div class="card">
+              <div class="cardImg">
+              </div>
+              <div class="cardInfo">
+                <h1 class="schoolName">Oussama Ouardi's School</h1>
+                <p class="schoolDomain">oussama-ouardi-s-school.teachable.com</p>
+              </div>
+              <div class="cardTicket">Online</div>
+              <div class="cardLogo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="schoolOwn">
+          <h1>Cours Enroll In</h1>
+          <div class="cards">
+            <div class="card">
+              <div class="cardImg imgRoll"></div>
+              <div class="cardInfo">
+                <h1 class="schoolName">Oussama Ouardi's School</h1>
+                <p class="schoolDomain">oussama-ouardi-s-school.teachable.com</p>
+              </div>
+              <div class="cardTicket">Online</div>
+              <div class="cardLogo logoRoll"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- My Schools section End -->
+
+      <!-- Add On Section -->
+      <section class="right containers addOn disable">
+        <h1>Add On</h1>
+      </section>
+      <!-- Add On Section End -->
+      
+      <!-- Setting Section -->
+      <section class="right containers setting">
+        <div class="settingContainer">
+          <form action="POST">
+            <div class="inputSection">
+              <div class="inputGroup">
+                <label for="userName">Full Name</label>
+                <input type="text" name="userName" id="userName" value="Oussama Ouardi"/>
+              </div>
+              <div class="inputGroup">
+                <label for="userMail">Email Adress</label>
+                <input type="email" name="userMail" id="UserMail" value="oussamaouardi80@gmail.com"/>
+              </div>
+              <span id="changePass">Change password</span>
+              <div class="changePassword">
+                <div class="inputGroup">
+                  <label for="changePass">New Password</label>
+                  <input type="password" name="changePass" id="ChangePass" />
+                </div>
+                <div class="inputGroup">
+                  <label for="confirmPass">Confirm password</label>
+                  <input type="password" name="confirmPass" id="confirmPass" />
+                </div>
+              </div>
+              <hr/>
+              <div class="inputGroup">
+                <label for="currPass">To save changes, please enter your current password </label>
+                <input type="password" name="currPass" id="currPass" />
+              </div>
+              <div class="inputGroup submit">
+                <input type="submit" name="confChang" id="confChang" value="Save changes" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- Setting Section End -->
+
+
+    </main>
+
+    <!-- Script js -->
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
