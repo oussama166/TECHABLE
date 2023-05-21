@@ -40,13 +40,13 @@
           </div>
         </div>
         <div class="choices">
-          <div class="choice mySchool ">
+          <div class="choice mySchool active">
             <i class="fa-solid fa-school"></i> My Schools
           </div>
           <div class="choice addOn ">
             <i class="fa-solid fa-circle-plus"></i> ADD
           </div>
-          <div class="choice setting active">
+          <div class="choice setting">
             <i class="fa-solid fa-gear"></i> Settings
           </div>
           <div class="choice">
@@ -58,7 +58,7 @@
 
       <!-- My Schools section -->
       {% if user.is_authenticated %}
-      <section class="right containers mySchool disable">
+      <section class="right containers mySchool">
         <div class="schoolOwn">
           <h1>Schools I Own</h1>
           <div class="cards">
@@ -131,7 +131,7 @@
       <!-- Add On Section End -->
       
       <!-- Setting Section -->
-      <section class="right containers setting">
+      <section class="right containers setting disable">
         <div class="settingContainer">
           <form action="POST">
             <div class="inputSection">
