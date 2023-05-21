@@ -134,6 +134,7 @@
       <section class="right containers setting disable">
         <div class="settingContainer">
           <form action="POST">
+            {% csrf_token %}
             <div class="inputSection">
               <div class="inputGroup">
                 <label for="userName">Full Name</label>
