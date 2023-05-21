@@ -33,9 +33,12 @@ def inscription(request):
 
 def admin(request):
   if request.method == "POST":
+    username= request.POST.get("userName")
+    email= request.POST.get("UserMail")
     password= request.POST.get("currPass")
     passwordc= request.POST.get("changePass")
-    user1= authenticate(password=password)
-    if user1:
-        user1.set_password()
+    user1= authenticate( username=username,email=email,password=password)
+    print("dfdsfs")
+    if user1:    
+        return render(request,'connection.html',{})
   return render(request,'admin.html',{})

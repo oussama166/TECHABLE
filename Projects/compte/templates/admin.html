@@ -133,16 +133,16 @@
       <!-- Setting Section -->
       <section class="right containers setting disable">
         <div class="settingContainer">
-          <form action="POST">
+          <form method="POST">
             {% csrf_token %}
             <div class="inputSection">
               <div class="inputGroup">
                 <label for="userName">Full Name</label>
-                <input type="text" name="userName" id="userName" value="Oussama Ouardi"/>
+                <input type="text" name="userName" id="userName" value=""/>
               </div>
               <div class="inputGroup">
                 <label for="userMail">Email Adress</label>
-                <input type="email" name="userMail" id="UserMail" value="oussamaouardi80@gmail.com"/>
+                <input type="email" name="userMail" id="UserMail" value=""/>
               </div>
               <span id="changePass">Change password</span>
               <div class="changePassword">
