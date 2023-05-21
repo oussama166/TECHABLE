@@ -12,7 +12,8 @@ def connection(request):
         password= request.POST.get("password")
         user1= authenticate( username=username,email=email,password=password)
         if user1:
-          return render(request,'inscription.html',{})
+          login(request,user1)
+          return render(request,'admin.html',{})
 
     return render(request,'connection.html',{})
 
@@ -31,4 +32,10 @@ def inscription(request):
   return render(request,'inscription.html',{})
 
 def admin(request):
+  if request.method == "POST":
+    password= request.POST.get("currPass")
+    passwordc= request.POST.get("changePass")
+    user1= authenticate(password=password)
+    if user1:
+        user1.set_password()
   return render(request,'admin.html',{})
