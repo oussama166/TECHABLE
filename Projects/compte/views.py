@@ -5,7 +5,6 @@ from techLearn.views import home
 from django.contrib.auth import get_user_model,login,authenticate,logout
 from compte.models import utilisateur
 # Create your views here.
-USER= get_user_model()
 def connection(request):
     if request.method == "POST":
         username= request.POST.get("name")
@@ -15,7 +14,6 @@ def connection(request):
           us=username
           em=email
           return render(request,'admin.html',{"username":us,"email":em})
-
     return render(request,'connection.html',{})
 
 def inscription(request):
@@ -29,15 +27,15 @@ def inscription(request):
   return render(request,'inscription.html',{})
 
 def admin(request):
-  if request.method == "POST":
-      username= request.POST.get("userName")
-      email= request.POST.get("UserMail")
-      password= request.POST.get("currPass")
-      passwordc= request.POST.get("changePass")
-      if utilisateur.objects.filter(nameU=username,emailU=email,passwordU=password).exists() :
-          u=utilisateur.objects.all()[1]
-          u.passwordU='444'
-          u.save()
-          print('lldldldlldl')
+    if request.method == "POST":
+        username= request.POST.get("userName")
+        email= request.POST.get("UserMail")
+        password= request.POST.get("currPass")
+        passwordc= request.POST.get("changePass")
+        if utilisateur.objects.filter(nameU=username,emailU=email,passwordU=password).exists() :
+          u=utilisateur.objects.all().get(nameU='abdo mendoubi')
+          print(u)
+          # u.passwordU='222'
+          # u.save()          
           return render(request,'connection.html',{})
-  return render(request,'admin.html',{})
+    return render(request,'admin.html',{})
