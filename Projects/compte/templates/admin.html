@@ -29,14 +29,10 @@
             <div class="userImg avatarDiv">
               <img class="avatar" alt="user logo" />
             </div>
-            {% if user.is_authenticated %}
             <div class="userInfo">
-              <span class="userName">{{user.username}}</span>
-              <span class="mailUser">{{user.email}}</span>
+              <span class="userName">{{username}}</span>
+              <span class="mailUser">{{email}}</span>
             </div>
-            {% else %}
-            <span class="userName">non connect</span>
-            {% endif %} 
           </div>
         </div>
         <div class="choices">
@@ -57,7 +53,7 @@
       <!-- Side Bar End -->
 
       <!-- My Schools section -->
-      {% if user.is_authenticated %}
+     
       <section class="right containers mySchool">
         <div class="schoolOwn">
           <h1>Schools I Own</h1>
@@ -66,8 +62,8 @@
               <div class="cardImg">
               </div>
               <div class="cardInfo">
-                <h1 class="schoolName">{{user.username}}'s School</h1>
-                <p class="schoolDomain">{{user.email}}</p>
+                <h1 class="schoolName">{{username}}'s School</h1>
+                <p class="schoolDomain">{{email}}</p>
               </div>
               <div class="cardTicket">Online</div>
               <div class="cardLogo"></div>
@@ -76,8 +72,8 @@
               <div class="cardImg">
               </div>
               <div class="cardInfo">
-                <h1 class="schoolName">{{user.username}}'s School</h1>
-                <p class="schoolDomain">{{user.email}}</p>
+                <h1 class="schoolName">{{username}}'s School</h1>
+                <p class="schoolDomain">{{email}}</p>
               </div>
               <div class="cardTicket">Online</div>
               <div class="cardLogo"></div>
@@ -86,8 +82,8 @@
               <div class="cardImg">
               </div>
               <div class="cardInfo">
-                <h1 class="schoolName">{{user.username}}'s School</h1>
-                <p class="schoolDomain">{{user.email}}</p>
+                <h1 class="schoolName">{{username}}'s School</h1>
+                <p class="schoolDomain">{{email}}</p>
               </div>
               <div class="cardTicket">Online</div>
               <div class="cardLogo"></div>
@@ -96,8 +92,8 @@
               <div class="cardImg">
               </div>
               <div class="cardInfo">
-                <h1 class="schoolName">{{user.username}}'s School</h1>
-                <p class="schoolDomain">{{user.email}}</p>
+                <h1 class="schoolName">{{username}}'s School</h1>
+                <p class="schoolDomain">{{email}}</p>
               </div>
               <div class="cardTicket">Online</div>
               <div class="cardLogo"></div>
@@ -110,8 +106,8 @@
             <div class="card">
               <div class="cardImg imgRoll"></div>
               <div class="cardInfo">
-                <h1 class="schoolName">{{user.username}}'s School</h1>
-                <p class="schoolDomain">{{user.email}}</p>
+                <h1 class="schoolName">{{username}}'s School</h1>
+                <p class="schoolDomain">{{email}}</p>
               </div>
               <div class="cardTicket">Online</div>
               <div class="cardLogo logoRoll"></div>
@@ -119,9 +115,6 @@
           </div>
         </div>
       </section>
-      {% else %}
-      <span class="userName">non connect</span>
-      {% endif %} 
       <!-- My Schools section End -->
 
       <!-- Add On Section -->

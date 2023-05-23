@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model,login
 from django.shortcuts import render,redirect
 from techLearn.views import home
 from django.contrib.auth import get_user_model,login,authenticate,logout
+from compte.models import utilisateur
 # Create your views here.
 USER= get_user_model()
 def connection(request):
@@ -10,10 +11,10 @@ def connection(request):
         username= request.POST.get("name")
         email= request.POST.get("email")
         password= request.POST.get("password")
-        user1= authenticate( username=username,email=email,password=password)
-        if user1:
-          login(request,user1)
-          return render(request,'admin.html',{})
+        if utilisateur.objects.filter(nameU=username,emailU=email,passwordU=password).exists() :
+          us=username
+          em=email
+          return render(request,'admin.html',{"username":us,"email":em})
 
     return render(request,'connection.html',{})
 
@@ -22,23 +23,21 @@ def inscription(request):
     username= request.POST.get("name")
     password= request.POST.get("password")
     email= request.POST.get("email")
-    user=USER.objects.create_user(
-      username=username,
-      password=password,
-      email=email
-    )
-    login(request,user)
+    u=utilisateur(nameU=username,emailU=email,passwordU=password)
+    u.save()
     return render(request,'connection.html',{})
   return render(request,'inscription.html',{})
 
 def admin(request):
   if request.method == "POST":
-    username= request.POST.get("userName")
-    email= request.POST.get("UserMail")
-    password= request.POST.get("currPass")
-    passwordc= request.POST.get("changePass")
-    user1= authenticate( username=username,email=email,password=password)
-    print("dfdsfs")
-    if user1:    
-        return render(request,'connection.html',{})
+      username= request.POST.get("userName")
+      email= request.POST.get("UserMail")
+      password= request.POST.get("currPass")
+      passwordc= request.POST.get("changePass")
+      if utilisateur.objects.filter(nameU=username,emailU=email,passwordU=password).exists() :
+          u=utilisateur.objects.all()[1]
+          u.passwordU='444'
+          u.save()
+          print('lldldldlldl')
+          return render(request,'connection.html',{})
   return render(request,'admin.html',{})
