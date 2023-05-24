@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
 class user(AbstractUser):
     pass
     
@@ -13,6 +14,4 @@ class utilisateur(models.Model):
     nameU=models.CharField(max_length=128)
     emailU=models.EmailField(max_length=250)
     passwordU=models.CharField(max_length=128)   
-    
-
 
