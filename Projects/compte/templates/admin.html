@@ -29,10 +29,14 @@
             <div class="userImg avatarDiv">
               <img class="avatar" alt="user logo" />
             </div>
-            <div class="userInfo">
-              <span class="userName">{{username}}</span>
-              <span class="mailUser">{{email}}</span>
-            </div>
+            {% if user.is_authenticated %}
+              <div class="userInfo">
+                <span class="userName">{{user.username}}</span>
+                <span class="mailUser">{{user.email}}</span>
+              </div>
+            {% else %}
+              <h1> bbllblblb</h1>
+            {% endif %}
           </div>
         </div>
         <div class="choices">
@@ -100,7 +104,7 @@
             </div>
           </div>
         </div>
-        <div class="schoolOwn">
+        {% comment %} <div class="schoolOwn">
           <h1>Cours Enroll In</h1>
           <div class="cards">
             <div class="card">
@@ -113,7 +117,7 @@
               <div class="cardLogo logoRoll"></div>
             </div>
           </div>
-        </div>
+        </div> {% endcomment %}
       </section>
       <!-- My Schools section End -->
 
@@ -131,11 +135,11 @@
             <div class="inputSection">
               <div class="inputGroup">
                 <label for="userName">Full Name</label>
-                <input type="text" name="userName" id="userName" value=""/>
+                <input type="text" name="userName" id="userName" value="{{username}}"/>
               </div>
               <div class="inputGroup">
                 <label for="userMail">Email Adress</label>
-                <input type="email" name="userMail" id="UserMail" value=""/>
+                <input type="email" name="userMail" id="UserMail" value="{{email}}"/>
               </div>
               <span id="changePass">Change password</span>
               <div class="changePassword">
