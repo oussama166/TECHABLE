@@ -132,14 +132,15 @@
         <div class="settingContainer">
           <form method="POST">
             {% csrf_token %}
+            {% if user.is_authenticated %}
             <div class="inputSection">
               <div class="inputGroup">
                 <label for="userName">Full Name</label>
-                <input type="text" name="userName" id="userName" value="{{username}}"/>
+                <input type="text" name="userName" id="userName" value="{{user.username}}"/>
               </div>
               <div class="inputGroup">
                 <label for="userMail">Email Adress</label>
-                <input type="email" name="userMail" id="UserMail" value="{{email}}"/>
+                <input type="email" name="userMail" id="UserMail" value="{{user.email}}"/>
               </div>
               <span id="changePass">Change password</span>
               <div class="changePassword">
@@ -163,6 +164,9 @@
             </div>
           </form>
         </div>
+        {% else %}
+        <h1> bbllblblb</h1>
+        {% endif %}
       </section>
       <!-- Setting Section End -->
 
