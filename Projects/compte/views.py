@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model, login
 from django.shortcuts import render, redirect, HttpResponse
 from techLearn.views import home
 from django.contrib.auth import get_user_model, login, authenticate, logout
-from compte.models import utilisateur
 from django.http import HttpResponse
 # Create your views here.
 USER= get_user_model()
