@@ -9,6 +9,7 @@
     <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
     <link rel="stylesheet" href="../assets/css/normalize.css" />
     <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/wtf-forms.css">
     <!-- font-awesome The iconic SVG, font, and CSS toolkit -->
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -34,13 +35,13 @@
           </div>
         </div>
         <div class="choices">
-          <div class="choice mySchool ">
+          <div class="choice mySchool active">
             <i class="fa-solid fa-school"></i> My Schools
           </div>
-          <div class="choice addOn ">
+          <div class="choice addOn">
             <i class="fa-solid fa-circle-plus"></i> ADD
           </div>
-          <div class="choice setting active">
+          <div class="choice setting">
             <i class="fa-solid fa-gear"></i> Settings
           </div>
           <div class="choice">
@@ -51,7 +52,7 @@
       <!-- Side Bar End -->
 
       <!-- My Schools section -->
-      <section class="right containers mySchool disable">
+      <section class="right containers mySchool ">
         <div class="schoolOwn">
           <h1>Schools I Own</h1>
           <div class="cards">
@@ -115,13 +116,106 @@
       <!-- My Schools section End -->
 
       <!-- Add On Section -->
-      <section class="right containers addOn disable">
-        <h1>Add On</h1>
+      <section class="right containers addOn disable ">
+        <section class="coursConatainer">
+          <form method="POST">
+            <div class="inputSection ">
+              <div class="nameCours section ">
+                <h1>Name your course : </h1>
+                <p>What would you like to name your course?Don’t worry, you
+                  can always change this later.</p>
+                <div class="inputGroup">
+                  <label for="coursTitle">Course Title</label>
+                  <input
+                    type="text"
+                    name="coursTitle"
+                    id="coursTitle"
+                    placeholder="e.g. 'Advanced Photoshop Techniques' or 'Watercolor for Dummies'"
+                    autofocus
+                    required />
+                  <span class="error disable">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    This field is required
+                  </span>
+                </div>
+              </div>
+              <div class="coursPrice section disable">
+                <h1>Course Price : </h1>
+                <p>The course price refers to the cost associated with
+                  accessing the course materials and resources.
+                </p>
+                <div class="inputGroup">
+                  <label for="coursPrice">Course Price</label>
+                  <input
+                    type="text"
+                    name="coursPrice"
+                    id="coursPrice"
+                    placeholder="e.g. '4.5 $'"
+                    pattern="\d{1,5}"
+                    autofocus
+                    required />
+                  <span class="error disable">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    This field is required
+                  </span>
+                </div>
+              </div>
+              <div class="coursDifficlty section disable">
+                <h1>Course Diffuclty : </h1>
+                <p>The course level difficulty is divided into three
+                  categories to accommodate learners with varying levels of
+                  knowledge and expertise.</p>
+                <div class="inputGroup">
+                  <label for="coursDifficulty">Course Level Difficulty :</label>
+                  <select name="coursTitle" id="coursTitle">
+                    <option value="select" selected disabled>--Select</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </div>
+              </div>
+              <div class="coursNumber section disable">
+                <h1>Course Section : </h1>
+                <p>How much section you preserve to this courses.</p>
+                <div class="inputGroup">
+                  <label for="coursSections">Sections Course :</label>
+                  <select name="coursSections" id="coursSections">
+                    <option value="select" selected disabled>--Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+
+              </div>
+              <div class="cours section disable">
+                <h1>let create some courses section</h1>
+              </div>
+            </div>
+            <div class="doneSection disable">
+              <h1>
+                Congratulation ! you created you cours
+              </h1>
+              <lottie-player
+                src="https://assets5.lottiefiles.com/datafiles/uoZvuyyqr04CpMr/data.json"
+                background="transparent" speed="1"
+                style="width: 300px; height: 300px; translate:15px 20px;" stop></lottie-player>
+            </div>
+            <div class="navigationCours">
+              <input class="buttonNav unfill" type="button" value="Back" />
+              <input class="buttonNav" type="button" value="Continue" />
+              <input class="buttonNav disable" type="submit" value="Confirm" />
+            </div>
+          </form>
+        </section>
       </section>
       <!-- Add On Section End -->
       
       <!-- Setting Section -->
-      <section class="right containers setting">
+      <section class="right containers setting disable">
         <div class="settingContainer">
           <form action="POST">
             <div class="inputSection">
@@ -162,7 +256,8 @@
     </main>
 
     <!-- Script js -->
-
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/validation.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </body>
 </html>

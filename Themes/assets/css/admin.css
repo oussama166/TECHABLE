@@ -137,6 +137,24 @@
   --space-48: 3rem;
   --space-60: 3.75rem;
   --space-72: 4.5rem;
+  --fs0: 1rem;
+  --lh0: 1.5rem;
+  --fs1: 1.125rem;
+  --lh1: 1.688rem;
+  --fs3: 1.424rem;
+  --lh3: 2.136rem;
+  --fs5: 1.802rem;
+  --lh5: 2.703rem;
+  --fs6: 2.027rem;
+  --lh6: 3.041rem;
+  --fs9: 2.887rem;
+  --lh9: 4.33rem;
+  --fs-1: 0.889rem;
+  --lh-1: 1.333rem;
+  --fs-2: 0.79rem;
+  --lh-2: 1.185rem;
+  --fs-3: 0.702rem;
+  --lh-3: 1.053rem;
   --goat-milk: #f8faf4;
   --celadon: #c8e3d8;
   --deep-emerald: #1b4942;
@@ -234,11 +252,15 @@ main {
   gap: 1.4rem;
 }
 
+.left::-webkit-scrollbar {
+  display: none;
+}
 .left {
   width: 30%;
   height: 100vh;
   background-color: var(--bs-white);
   overflow-y: scroll;
+  -ms-overflow-style: hidden;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -447,6 +469,111 @@ main {
 
 /* My School Section End */
 
+/* Add Section */
+
+.addOn {
+  width: 100%;
+  padding-block: 0 !important;
+}
+.addOn .coursConatainer {
+  width: 100%;
+  background-color: var(--white);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addOn .coursConatainer .nameCours,
+.addOn .coursConatainer .section {
+  width: 80%;
+  min-width: 500px;
+}
+.addOn .coursConatainer .section h1 {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-200);
+  font-size: var(--font-size-32);
+  line-height: var(--size-30);
+}
+
+.addOn .coursConatainer .section p {
+  padding-block: var(--size-30);
+  font-size: var(--fs-1);
+  min-width: 500px;
+  max-width: 500px;
+}
+
+.addOn .coursConatainer .inputGroup .error {
+  color: var(--red-carpet);
+  text-decoration: none;
+}
+
+.addOn .coursConatainer .cours h1 {
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 700px;
+  font-size: var(--size-48);
+  line-height: var(--lh6);
+}
+
+.addOn .coursConatainer .courGeanarate h1 {
+  font-variant-numeric: tabular-nums;
+}
+.addOn .coursConatainer .courGeanarate hr {
+  margin-block: var(--size-20);
+  border: 1px solid var(--color-grey-20);
+}
+
+/* button navigation  */
+
+.navigationCours {
+  width: 80%;
+  margin-block: var(--size-20);
+}
+
+.navigationCours .buttonNav {
+  border: none;
+  padding-inline: var(--size-32);
+  background-color: #e4e4e4;
+  border: 1px solid #e4e4e4;
+  color: #a7a7a7;
+  padding-top: var(--size-8);
+  padding-bottom: var(--size-8);
+  border-radius: 0.3125rem;
+  font-family: var(--font-family-system);
+  font-weight: 600;
+  font-size: var(--fs-1);
+  line-height: var(--lh-1);
+  cursor: pointer;
+}
+
+.navigationCours .buttonNav:active {
+  background-color: #1aa47d;
+  border-color: #1aa47d;
+  box-shadow: unset;
+}
+.navigationCours .buttonNav[type="submit"] {
+  background-color: #1aa47d;
+  border-color: #1aa47d;
+  color: var(--white);
+  box-shadow: unset;
+}
+.navigationCours .unfill {
+  background-color: transparent;
+  border: none;
+  color: var(--black);
+  font-weight: var(--font-weight-500);
+  transition: 0.5s all ease-in-out;
+}
+.navigationCours .unfill:hover {
+  background-color: var(--color-grey-6);
+  transition: 0.5s all ease-in-out;
+}
+
+/* End button navigation  */
+
+/* End Add Section */
+
 /* Setting Section  */
 
 .setting {
@@ -468,25 +595,26 @@ main {
   height: 100%;
 }
 
-.settingContainer .inputSection {
+.inputSection {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 100%;
 }
 
-.settingContainer .inputSection .inputGroup {
+.inputSection .inputGroup {
   display: flex;
   flex-direction: column;
   gap: var(--size-10);
 }
-.settingContainer .inputSection .inputGroup label {
+.inputSection .inputGroup label {
   color: var(--plumette);
   font-size: 13px;
   font-weight: 500;
   line-height: 29px;
 }
-.settingContainer .inputSection .inputGroup input {
+.inputSection .inputGroup input,
+.inputSection .inputGroup textarea {
   width: 100%;
   height: 25px;
   background: 0 0;
@@ -499,14 +627,18 @@ main {
   line-height: var(--line-height-100);
   transition: all 0.3s ease;
 }
-.settingContainer .inputSection .inputGroup input:focus {
+.inputSection .inputGroup input:focus,
+.inputSection .inputGroup textarea:focus {
   outline: 0;
   border: 1px solid var(--magic);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
     0 0 8px rgba(102, 175, 233, 0.6);
 }
-
-.settingContainer .inputSection span {
+.inputSection .inputGroup textarea {
+  padding-block: 0.7rem;
+  height: 100px;
+}
+.inputSection span {
   color: var(--money);
   font-size: 14px;
   line-height: 1.42857143;
@@ -542,7 +674,7 @@ main {
   outline: none !important;
   color: #fff;
   cursor: pointer;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
 }
 .settingContainer .inputSection .inputGroup input[type="submit"]:hover {
   outline: none !important;
@@ -564,4 +696,12 @@ main {
 }
 .activeConatiner {
   display: block;
+}
+.preventDefault {
+  pointer-events: none;
+}
+lottie-player {
+  width: 300px;
+  height: 300px;
+  transform: translate(40%, 16px);
 }
