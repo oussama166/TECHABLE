@@ -87,6 +87,7 @@ body {
   box-sizing: border-box;
   font-family: var(--bs-body-font-family);
   overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* NavBar */
@@ -170,10 +171,18 @@ nav .left-section .button {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    z-index: 3000;
   }
 
   nav .navSection {
     gap: 20px;
+  }
+  .left-section .button{
+    font-size: 1.123rem;
+    text-transform: capitalize;
+    margin-inline: 15px;
+    text-decoration: underline;
+    font-family: var(--bs-body-font-family);
   }
 
   .visuallyHidden {
@@ -286,31 +295,61 @@ nav .left-section .button {
 
   .wrapper {
     position: absolute;
-    top: -11px;
-    right: -1000px;
-    width: 400px;
+    top: -800px;
+    right: 0;
+    left: 0;
+    width: 816px;
+    transform: translateX(-80%);
     background-color: var(--bs-body-bg);
     height: 100vh;
     z-index: -1;
-    transition: 0.6s cubic-bezier(0.06, 0.71, 0.84, 0.31);
-  }
-
-  .wrapper li {
-    font-size: 1.5rem;
-    padding: 10px;
-    transform: translateY(100px);
-  }
-
-  .wrapper li:last-child {
-    font-size: 1rem;
-    border: none;
+    transition: .5s ease-in;
   }
 
   .wrapper-show {
-    top: -10px;
-    right: -100%;
-    transition: 0.6s cubic-bezier(0.06, 0.71, 0.84, 0.31);
+    top: 58px;
+    right: 0;
+    left: 0;
+    transform: translateX(-80%);
+    transition: .5s ease-out;
   }
+
+  .wrapper li {
+    padding: 10px;
+    transform: translate(-1000px,-1000px);
+    margin-block: 2rem;
+    font-size: 1.9rem;
+  }
+
+  .wrapper li:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    transform: translate(200px,100px);
+  }
+  .wrapper li:last-child > button:first-child {
+    width: 40%;
+    background-color: var(--bs-teal);
+    line-height: 3;
+    font-size: 1.3rem;
+    color: var(--bs-white);
+    border-radius: 10px;
+    text-transform: capitalize;
+    font-family: var(--bs-body-font-family);
+    font-weight: 500;
+  }
+  .wrapper li:last-child > button:last-child {
+    width: 40%;
+    line-height: 3;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-weight: 300;
+    text-decoration: underline;
+    font-family: var(--bs-body-font-family);
+  }
+
+
 }
 /* ========== END ==========     */
 
@@ -467,8 +506,6 @@ footer {
   }
 }
 
-/* Preclass */
 .container {
-  padding: 0 auto;
-  margin: 0 auto;
+  margin: 0 50px;
 }
