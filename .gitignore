@@ -1,3 +1,4 @@
 /modules_node/
 .idea
-*.diff
+.diff
+.js.rej
