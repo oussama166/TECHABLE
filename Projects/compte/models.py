@@ -6,9 +6,9 @@ class user(AbstractUser):
         
 class cour(models.Model):
     name= models.CharField(max_length=100, primary_key=True)
-    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     price = models.FloatField()
+    diff=models.CharField(max_length=100)
 
 class Video_cour(models.Model):
     type=models.CharField(max_length=100,primary_key=True)

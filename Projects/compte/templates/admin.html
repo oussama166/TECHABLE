@@ -134,7 +134,8 @@
       <!-- Add On Section -->
       <section class="right containers addOn disable ">
         <section class="coursConatainer">
-          <form method="POST">
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="inputSection ">
               <div class="nameCours section ">
                 <h1>Name your course : </h1>
@@ -183,7 +184,7 @@
                   knowledge and expertise.</p>
                 <div class="inputGroup">
                   <label for="coursDifficulty">Course Level Difficulty :</label>
-                  <select name="coursTitle" id="coursTitle">
+                  <select name="coursDifficlty" id="coursTitle">
                     <option value="select" selected disabled>--Select</option>
                     <option value="beginner">Beginner</option>
                     <option value="intermediate">Intermediate</option>
