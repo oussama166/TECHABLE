@@ -43,9 +43,19 @@
           <div class="choice mySchool active">
             <i class="fa-solid fa-school"></i> My Schools
           </div>
+          {% if user.is_authenticated %}
+            {% if "teach.com" in user.email %}
+              <div class="choice addOn ">
+                <i class="fa-solid fa-circle-plus"></i> ADD
+              </div>
+            {% else %}
+            <span class="mailUser">Hello student</span>
+            {% endif %}
+          {% else %}
           <div class="choice addOn ">
-            <i class="fa-solid fa-circle-plus"></i> ADD
+            <i class="fa-solid fa-circle-plus"></i> no conncet
           </div>
+          {% endif %}
           <div class="choice setting">
             <i class="fa-solid fa-gear"></i> Settings
           </div>

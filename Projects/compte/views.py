@@ -22,8 +22,12 @@ def inscription(request):
     username= request.POST.get("name")
     password= request.POST.get("password")
     email= request.POST.get("email")
-    user=USER.objects.create_user(username=username,email=email,password=password)
-    return redirect('connection')
+    em=str(email)
+    em1=em.split("@")
+    em2=em1[1]
+    if em2=="teach.com" or em2=="edu.com":
+      user=USER.objects.create_user(username=username,email=email,password=password)
+      return redirect('connection')
   return render(request,'inscription.html',{})
 
 def admin(request):
@@ -33,6 +37,8 @@ def admin(request):
       password= request.POST.get("currPass")
       passwordc= request.POST.get("changePass")
       user1=authenticate(username=username,email=email,password=password)
+      # em=str(email)
+      # em1=em.split("@",2)
       if user1 :
           u=USER.objects.all().get(username=username)
           u.set_password(passwordc)
