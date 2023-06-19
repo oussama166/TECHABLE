@@ -32,6 +32,7 @@ def inscription(request):
   return render(request,'inscription.html',{})
 
 def admin(request):
+  cours=cour.objects.all()
   if request.method == "POST":
       username= request.POST.get("userName")
       email= request.POST.get("UserMail")
@@ -82,4 +83,4 @@ def admin(request):
           u.set_password(passwordc)
           u.save()   
           return redirect('connection') 
-  return render(request,'admin.html',{})
+  return render(request,'admin.html',context={"cour":cours})
