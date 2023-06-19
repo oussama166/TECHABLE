@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import get_user_model, login
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse,get_object_or_404
 from techLearn.views import home
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.http import HttpResponse
@@ -54,7 +54,7 @@ def admin(request):
       tv5=request.POST.get("sectionCoursTitle5")
       dv5=request.POST.get("sectionCoursDescription5")
       nc=str(Ncour)
-      cour1=cour(name=tcour,price=pcour,diff=dcour)
+      cour1=cour(name=tcour,slug=tcour,price=pcour,diff=dcour)
       cour1.save()
       if nc=="1":
         vd=Video_cour(type=dcour,title1=tv1,description1=dv1,video1=v1,name_all_id=tcour)
@@ -84,3 +84,6 @@ def admin(request):
           u.save()   
           return redirect('connection') 
   return render(request,'admin.html',context={"cour":cours})
+def cours(request,slug):
+  cour1= get_object_or_404(Video_cour,name_all=slug)
+  return render(request,'watch.html',context={"cour":cour1})

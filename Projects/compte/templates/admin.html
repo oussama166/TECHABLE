@@ -77,7 +77,8 @@
                 <div class="cardImg">
                 </div>
                 <div class="cardInfo">
-                  <h1 class="schoolName">{{i.name}}'s School</h1>
+                  <a href="{% url 'cours' i.slug %}">
+                  <h1 class="schoolName">{{i.name}}'s School</h1></a>
                   <p class="schoolDomain">{{i.diff}}</p>
                 </div>
                 <div class="cardTicket">Online</div>
