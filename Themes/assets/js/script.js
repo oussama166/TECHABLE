@@ -63,6 +63,8 @@ function PermuteActiveState(name, trigger = 'active') {
 PermuteActiveState('.choices>.choice')
 
 
+
+
 // show AddProccus
 
 
@@ -234,7 +236,6 @@ generate()
 
 
 
-
 // Create Course Element
 
 
@@ -379,3 +380,6 @@ function appearPassChange() {
 }
 appearPassChange()
 
+
+
+// Change state of 
