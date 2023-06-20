@@ -86,4 +86,3 @@ function progressBar(){
     document.styleSheets[0].addRule(".details-about-progress .progress::after", progress);
 
 }
-

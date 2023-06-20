@@ -113,7 +113,7 @@ const addProccus = () => {
 
       add[addLen].classList.remove('disable')
       console.warn('im the last element pelease top??')
-    }
+    } 
     else {
       console.log(counter);
       add[counter].classList.add('disable')
@@ -382,4 +382,3 @@ appearPassChange()
 
 
 
-// Change state of 
