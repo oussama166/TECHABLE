@@ -19,18 +19,18 @@
     </head>
     <!-- Static code -->
     <body>
-        {% if cour.title1 is not None %}
+        {% if cour.title1 == "" %}
+        <span class="total hide">0</span>
+        {% elif cour.title2 == "" %}
         <span class="total hide">1</span>
-        {% elif cour.title2 is not None %}
+        {% elif cour.title3 == "" %}
         <span class="total hide">2</span>
-        {% elif cour.title3 is not None %}
+        {% elif cour.title4 == "" %}
         <span class="total hide">3</span>
-        {% elif cour.title4 is not None %}
+        {% elif cour.title5 == "" %}
         <span class="total hide">4</span>
-        {% elif cour.title5 is not None %}
-        <span class="total hide">5</span>
         {% else %}
-        <span class="total hide">0</span>        
+        <span class="total hide">5</span>        
         {% endif %}
         <main>
             <header>
@@ -165,12 +165,12 @@
                     <section class="details-info hide" aria-hidden="true">
                         <h1>{{cour.title2}}</h1>
                         <div class="videoBox">
-                            {% if cour.title2 is not None  %}
+                            {% if cour.title2 == ""  %}
+                             <span class="total hide">None</span>
+                            {% else %}
                             <video onclick="play(event)"
                                 src="{{cour.video2.url}}"
                                 id="video"></video>
-                            {% else %}
-                            <span class="total hide">None</span>
                             {% endif %}
                             <div class="controls">
                                 <div class="timeline">
@@ -212,12 +212,12 @@
                         <h1>{{cour.title3}}</h1>
 
                         <div class="videoBox">
-                            {% if cour.title3 is not None  %}
+                            {% if cour.title3 == ""  %}
+                            <span class="total hide">None</span>
+                            {% else %}
                             <video onclick="play(event)"
                                 src="{{cour.video3.url}}"
                                 id="video"></video>
-                            {% else %}
-                            <span class="total hide">None</span>
                             {% endif %}
                             <div class="controls">
                                 <div class="timeline">
@@ -259,12 +259,12 @@
                         <h1>{{cour.title4}}</h1>
 
                         <div class="videoBox">
-                            {% if cour.title4 is not None %}
+                            {% if cour.title4 == "" %}
+                            <span class="total hide">None</span>
+                            {% else %}
                             <video onclick="play(event)"
                                 src="{{cour.video4.url}}"
                                 id="video"></video>
-                            {% else %}
-                            <span class="total hide">None</span>
                             {% endif %}
                             <div class="controls">
                                 <div class="timeline">
@@ -306,12 +306,12 @@
                         <h1>{{cour.title5}}</h1>
 
                         <div class="videoBox">
-                            {% if cour.title5 is not None %}
+                            {% if cour.title5 == "" %}
+                            <span class="total hide">None</span>
+                            {% else %}
                             <video onclick="play(event)"
                                 src="{{cour.video5.url}}"
                                 id="video"></video>
-                            {% else %}
-                            <span class="total hide">None</span>
                             {% endif %}
                             <div class="controls">
                                 <div class="timeline">
