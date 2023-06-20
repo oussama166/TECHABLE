@@ -381,5 +381,5 @@ function appearPassChange() {
 appearPassChange()
 
 
+// change satate of watching cours 
 
-// Change state of 
