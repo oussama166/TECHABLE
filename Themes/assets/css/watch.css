@@ -401,7 +401,7 @@ header .move .move-next i {
 .details-about-progress .progress::after{
     content: "";
     background-color: var(--green-machine);
-    width: 2rem;
+    width: 0rem;
     height: 2rem;
     position: absolute;
     border-radius: 1.875rem;
