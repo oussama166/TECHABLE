@@ -1,22 +1,81 @@
-const detailCrs = document.querySelectorAll(".detail-course-vedio");
-const detailInfo = document.querySelectorAll(".details-info");
 const back = document.querySelector(".move-back");
 const next = document.querySelector(".move-next");
+const total = parseInt(document.querySelector(".total").innerHTML);
+const pourcentage = document.querySelector(".details-about-progress > span");
 
-const state = ["fa-circle-play", "fa-circle-check", "fa-circle-check"];
-const total = document.querySelector('.total').innerHTML;
-const pourcantage = document.querySelector('.details-about-progress>span');
+let counter = 0;
+let currentStep = 1;
+const steps = 100 / total;
 
+let detailCrs = document.querySelectorAll(".detail-course-vedio");
+let detailInfo = document.querySelectorAll(".details-info");
+
+function hideElements() {
+  detailInfo.forEach((elem) => {
+    elem.classList.add("hide");
+  });
+}
+
+function showElement(index) {
+  detailInfo[index].classList.remove("hide");
+}
+
+function updateProgressBar() {
+  counter = currentStep * steps;
+  pourcentage.innerHTML = `${counter}% Complete`;
+  const progressWidth = `${counter}%`;
+  document.styleSheets[0].addRule(
+    ".details-about-progress .progress::after",
+    `width: ${progressWidth}`
+  );
+}
+
+function generateArrays() {
+  totalspan = parseInt(total);
+  detailCrs = [];
+  detailInfo = [];
+
+  for (let i = 0; i < totalspan; i++) {
+    const crs = document.querySelector(
+      `.detail-course-vedio[data-number="${i + 1}"]`
+    )
+    crs.parentElement.classList.remove("hide")
+    const info = document.querySelector(
+      `.details-info[data-number="${i + 1}"]`
+    );
+
+    if (crs && info) {
+      detailCrs.push(crs);
+      detailInfo.push(info);
+    }
+  }
+  console.log(detailCrs,detailInfo);
+}
+
+
+function changeState(index, i) {
+  detailCrs[index].childNodes[1].childNodes[1].classList[1] = "";
+  detailCrs[index].childNodes[1].childNodes[1].classList.add("fa-check-circle");
+  detailCrs[index].classList.remove("active");
+  detailCrs[index].classList.add("complete");
+  detailCrs[i].classList.add("active");
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  back.classList.add("hide");
+  hideElements();
+  showElement(0);
+  updateProgressBar();
+  generateArrays()
 });
 
-detailCrs.forEach((vid) => {
-  vid.addEventListener("click", (e) => {
-    changeVisblity();
-    detailInfo[vid.dataset.number - 1].classList.remove("hide");
-    if (vid.dataset.number == 1) {
+detailCrs.forEach((vid, index) => {
+  vid.addEventListener("click", () => {
+    hideElements();
+    showElement(index);
+    currentStep = index + 1;
+    updateProgressBar();
+
+    if (currentStep === 1) {
       back.classList.add("hide");
     } else {
       back.classList.remove("hide");
@@ -24,66 +83,32 @@ detailCrs.forEach((vid) => {
   });
 });
 
-function changeVisblity() {
-  detailInfo.forEach((elem) => {
-    if (!elem.classList.contains("hide")) {
-      elem.classList.add("hide");
-    }
-  });
-}
-function changeState(index, i) {
-  detailCrs[index].childNodes[1].childNodes[1].classList.add(state[1]);
-  detailCrs[index].classList.remove("active");
-  detailCrs[index].classList.add("complete");
-  detailCrs[i].classList.add("active");
-}
-
-let i = 0;
 next.addEventListener("click", () => {
-  detailInfo.forEach((elem, index) => {
-    if (!elem.classList.contains("hide") && i < detailInfo.length - 1) {
-      elem.classList.add("hide");
-      i = index + 1;
-      changeState(index, i);
-      progressBar()
-    }
-    if (index == i && i < detailInfo.length) {
-      elem.classList.remove("hide");
-    }
-    if (i == 1) {
-      back.classList.remove("hide");
-    }
-  });
-});
+  if (currentStep < total) {
+    hideElements();
+    currentStep++;
+    showElement(currentStep - 1);
+    updateProgressBar();
+    changeState(currentStep - 2, currentStep - 1);
+    back.classList.remove("hide");
+  }
 
-back.addEventListener("click", () => {
-  let currentIndex = 0;
-
-  detailInfo.forEach((elem, index) => {
-    if (!elem.classList.contains("hide")) {
-      elem.classList.add("hide");
-      currentIndex = index;
-    }
-  });
-
-  const previousIndex =
-    (currentIndex - 1 + detailInfo.length) % detailInfo.length;
-  detailInfo[previousIndex].classList.remove("hide");
-
-  if (previousIndex === 0) {
-    back.classList.add("hide");
+  if (currentStep === total) {
+    next.classList.add("hide");
   }
 });
 
+back.addEventListener("click", () => {
+  if (currentStep > 1) {
+    hideElements();
+    currentStep--;
+    showElement(currentStep - 1);
+    updateProgressBar();
+    changeState(currentStep, currentStep - 1);
+    next.classList.remove("hide");
+  }
 
-let counter = 32
-
-function progressBar(){
-    let steps = 272/parseInt(total);
-    counter +=steps 
-    pourcantage.innerHTML = `${ Math.round((counter*100)/272)}% Complete`;
-    let progress = `width: ${counter}px; `;
-    document.styleSheets[0].addRule(".details-about-progress .progress::after", progress);
-
-}
-
+  if (currentStep === 1) {
+    back.classList.add("hide");
+  }
+});

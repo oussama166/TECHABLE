@@ -62,65 +62,65 @@
                         </div>
                     </div>
                     <div class="details-courses">
-                        <div class="detail-course">
+                        <div class="detail-course hide">
                             <h1>Introduction</h1>
                             <div class="detail-course-vedio active" data-number="1">
                                 <div class="vedio-state">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
-                                    <span>Welcome (0:15)</span>
+                                    <span>{{cour.title1}}(0:15)</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-course">
+                        <div class="detail-course hide">
                             <h1>Introduction</h1>
                             <div class="detail-course-vedio"  data-number="2">
                                 <div class="vedio-state">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
-                                    <span>Welcome (0:15)</span>
+                                    <span>{{cour.title2}} (0:15)</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-course">
+                        <div class="detail-course hide">
                             <h1>Completed section</h1>
                             <div class="detail-course-vedio"  data-number="3">
                                 <div class="vedio-state">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
-                                    <span>Welcome (0:15)</span>
+                                    <span>{{cour.title3}}(0:15)</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-course">
+                        <div class="detail-course hide">
                             <h1>Completed section</h1>
                             <div class="detail-course-vedio"  data-number="4">
                                 <div class="vedio-state">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
-                                    <span>Welcome (0:15)</span>
+                                    <span>{{cour.title4}} (0:15)</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-course">
+                        <div class="detail-course hide">
                             <h1>Completed section</h1>
                             <div class="detail-course-vedio"  data-number="5">
                                 <div class="vedio-state">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
-                                    <span>Welcome (0:15)</span>
+                                    <span>{{cour.title5}}(0:15)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
                 <div class="infos">
-                    <section class="details-info" aria-hidden="false">
+                    <section class="details-info" aria-hidden="false" data-number="1">
                         <h1>{{cour.title1}}</h1>
                         <div class="videoBox">
                             <video onclick="play(event)"
@@ -162,7 +162,7 @@
                         </div>
 
                     </section>
-                    <section class="details-info hide" aria-hidden="true">
+                    <section class="details-info hide" aria-hidden="true" data-number="2">
                         <h1>{{cour.title2}}</h1>
                         <div class="videoBox">
                             {% if cour.title2 == ""  %}
@@ -208,7 +208,7 @@
                         </div>
 
                     </section>
-                    <section class="details-info hide" aria-hidden="true">
+                    <section class="details-info hide" aria-hidden="true" data-number="3">
                         <h1>{{cour.title3}}</h1>
 
                         <div class="videoBox">
@@ -255,7 +255,7 @@
                         </div>
 
                     </section>
-                    <section class="details-info hide" aria-hidden="true">
+                    <section class="details-info hide" aria-hidden="true" data-number="4">
                         <h1>{{cour.title4}}</h1>
 
                         <div class="videoBox">
@@ -302,7 +302,7 @@
                         </div>
 
                     </section>
-                    <section class="details-info hide" aria-hidden="true">
+                    <section class="details-info hide" aria-hidden="true" data-number="5">
                         <h1>{{cour.title5}}</h1>
 
                         <div class="videoBox">
