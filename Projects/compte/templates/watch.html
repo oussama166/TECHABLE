@@ -1,16 +1,15 @@
+{% load static %}
 <!-- Static code -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0,text">
-        <link rel="stylesheet" href="../assets/css/watch.css" />
+        <meta name="viewport"content="width=device-width, initial-scale=1.0,text">
+        <link rel="stylesheet" href="{% static 'css/watch.css' %}" />
         <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
-        <link rel="stylesheet" href="../assets/css/normalize.css" />
-
-        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/style.css'%}" />
         <!-- font-awesome The iconic SVG, font, and CSS toolkit -->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,6 +19,19 @@
     </head>
     <!-- Static code -->
     <body>
+        {% if cour.title1 is not None %}
+        <span class="total hide">1</span>
+        {% elif cour.title2 is not None %}
+        <span class="total hide">2</span>
+        {% elif cour.title3 is not None %}
+        <span class="total hide">3</span>
+        {% elif cour.title4 is not None %}
+        <span class="total hide">4</span>
+        {% elif cour.title5 is not None %}
+        <span class="total hide">5</span>
+        {% else %}
+        <span class="total hide">0</span>        
+        {% endif %}
         <main>
             <header>
                 <div class="steps">
@@ -52,7 +64,7 @@
                     <div class="details-courses">
                         <div class="detail-course">
                             <h1>Introduction</h1>
-                            <div class="detail-course-vedio active">
+                            <div class="detail-course-vedio active" data-number="1">
                                 <div class="vedio-state">
                                     <i class="fa-regular fa-circle-play"></i>
                                 </div>
@@ -63,9 +75,9 @@
                         </div>
                         <div class="detail-course">
                             <h1>Introduction</h1>
-                            <div class="detail-course-vedio complete">
+                            <div class="detail-course-vedio"  data-number="2">
                                 <div class="vedio-state">
-                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
                                     <span>Welcome (0:15)</span>
@@ -74,9 +86,31 @@
                         </div>
                         <div class="detail-course">
                             <h1>Completed section</h1>
-                            <div class="detail-course-vedio">
+                            <div class="detail-course-vedio"  data-number="3">
                                 <div class="vedio-state">
-                                    <i class="fa-solid fa-circle-check"></i>
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <div class="vedio-name">
+                                    <span>Welcome (0:15)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-course">
+                            <h1>Completed section</h1>
+                            <div class="detail-course-vedio"  data-number="4">
+                                <div class="vedio-state">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                                <div class="vedio-name">
+                                    <span>Welcome (0:15)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-course">
+                            <h1>Completed section</h1>
+                            <div class="detail-course-vedio"  data-number="5">
+                                <div class="vedio-state">
+                                    <i class="fa-regular fa-circle-play"></i>
                                 </div>
                                 <div class="vedio-name">
                                     <span>Welcome (0:15)</span>
@@ -85,53 +119,242 @@
                         </div>
                     </div>
                 </section>
-                <section class="details-info">
-                    <h1>Welcome</h1>
-                    
-                    <div class="videoBox">
-                        <video onclick="play(event)"
-                            src="../assets/video/videoplayback.mp4" id="video"></video>
-                        <div class="controls">
-                            <div class="timeline">
-                                <div class="bar">
-                                    <div class="inner"></div>
+                <div class="infos">
+                    <section class="details-info" aria-hidden="false">
+                        <h1>{{cour.title1}}</h1>
+                        <div class="videoBox">
+                            <video onclick="play(event)"
+                                src="{{cour.video1.url}}"
+                                id="video"></video>
+                            <div class="controls">
+                                <div class="timeline">
+                                    <div class="bar">
+                                        <div class="inner"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="timeline-controle">
-                                <div class="timeline-controle-left">
-                                    <button onclick="play(event)"><i
-                                            class="fa fa-play"></i><i
-                                            class="fa fa-pause"></i></button>
-                                    <button onclick="rewind(event)"><i
-                                            class="fa fa-fast-backward"></i></button>
-                                    <button onclick="forward(event)"><i
-                                            class="fa fa-fast-forward"></i></button>
+                                <div class="timeline-controle">
+                                    <div class="timeline-controle-left">
+                                        <button onclick="play(event)"><i
+                                                class="fa fa-play"></i><i
+                                                class="fa fa-pause"></i></button>
+                                        <button onclick="rewind(event)"><i
+                                                class="fa fa-fast-backward"></i></button>
+                                        <button onclick="forward(event)"><i
+                                                class="fa fa-fast-forward"></i></button>
 
-                                </div>
-                                <div class="timeline-controle-right">
+                                    </div>
+                                    <div class="timeline-controle-right">
 
-                                    <button onclick="fullScreen(event)"><i
-                                            class="fa fa-expand"></i></button>
-                                    <button onclick="download(event)"><i
-                                            class="fa fa-cloud-download"></i></button>
+                                        <button onclick="fullScreen(event)"><i
+                                                class="fa fa-expand"></i></button>
+                                        <button onclick="download(event)"><i
+                                                class="fa fa-cloud-download"></i></button>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="description">
-                        <h1>Description</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam libero distinctio beatae, officia nobis magni dolorum. Nemo, exercitationem maxime a sequi voluptas asperiores eos, hic maiores iure nam vitae laborum, vel ipsa tempora explicabo cupiditate obcaecati recusandae optio? Odio ducimus dolorum incidunt illum dolor, eaque consequuntur. Voluptate optio, voluptatibus neque iusto nam fugit dolor quis veniam sapiente, illum est consequuntur reprehenderit labore. Eius quam exercitationem sunt deserunt ut, enim porro explicabo aliquid placeat perferendis laboriosam blanditiis necessitatibus iste veritatis iure, illo eveniet molestiae ratione at a eaque sequi repudiandae vel odit. Aspernatur recusandae consequatur ullam iusto eaque cupiditate illum odio!</p>
-                        <button class="next-course">Next course ></button>
-                    </div>
+                        <div class="description">
+                            <h1>Description</h1>
+                            <p>{{cour.description1}}</p>
+                            <button class="next-course">Next course ></button>
+                        </div>
 
+                    </section>
+                    <section class="details-info hide" aria-hidden="true">
+                        <h1>{{cour.title2}}</h1>
+                        <div class="videoBox">
+                            {% if cour.title2 is not None  %}
+                            <video onclick="play(event)"
+                                src="{{cour.video2.url}}"
+                                id="video"></video>
+                            {% else %}
+                            <span class="total hide">None</span>
+                            {% endif %}
+                            <div class="controls">
+                                <div class="timeline">
+                                    <div class="bar">
+                                        <div class="inner"></div>
+                                    </div>
+                                </div>
+                                <div class="timeline-controle">
+                                    <div class="timeline-controle-left">
+                                        <button onclick="play(event)"><i
+                                                class="fa fa-play"></i><i
+                                                class="fa fa-pause"></i></button>
+                                        <button onclick="rewind(event)"><i
+                                                class="fa fa-fast-backward"></i></button>
+                                        <button onclick="forward(event)"><i
+                                                class="fa fa-fast-forward"></i></button>
 
-                </section>
+                                    </div>
+                                    <div class="timeline-controle-right">
+
+                                        <button onclick="fullScreen(event)"><i
+                                                class="fa fa-expand"></i></button>
+                                        <button onclick="download(event)"><i
+                                                class="fa fa-cloud-download"></i></button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <h1>Description</h1>
+                            <p>{{cour.description2}}</p>
+                            <button class="next-course">Next course ></button>
+                        </div>
+
+                    </section>
+                    <section class="details-info hide" aria-hidden="true">
+                        <h1>{{cour.title3}}</h1>
+
+                        <div class="videoBox">
+                            {% if cour.title3 is not None  %}
+                            <video onclick="play(event)"
+                                src="{{cour.video3.url}}"
+                                id="video"></video>
+                            {% else %}
+                            <span class="total hide">None</span>
+                            {% endif %}
+                            <div class="controls">
+                                <div class="timeline">
+                                    <div class="bar">
+                                        <div class="inner"></div>
+                                    </div>
+                                </div>
+                                <div class="timeline-controle">
+                                    <div class="timeline-controle-left">
+                                        <button onclick="play(event)"><i
+                                                class="fa fa-play"></i><i
+                                                class="fa fa-pause"></i></button>
+                                        <button onclick="rewind(event)"><i
+                                                class="fa fa-fast-backward"></i></button>
+                                        <button onclick="forward(event)"><i
+                                                class="fa fa-fast-forward"></i></button>
+
+                                    </div>
+                                    <div class="timeline-controle-right">
+
+                                        <button onclick="fullScreen(event)"><i
+                                                class="fa fa-expand"></i></button>
+                                        <button onclick="download(event)"><i
+                                                class="fa fa-cloud-download"></i></button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <h1>Description</h1>
+                            <p>{{cour.description3}}</p>
+                            <button class="next-course">Next course ></button>
+                        </div>
+
+                    </section>
+                    <section class="details-info hide" aria-hidden="true">
+                        <h1>{{cour.title4}}</h1>
+
+                        <div class="videoBox">
+                            {% if cour.title4 is not None %}
+                            <video onclick="play(event)"
+                                src="{{cour.video4.url}}"
+                                id="video"></video>
+                            {% else %}
+                            <span class="total hide">None</span>
+                            {% endif %}
+                            <div class="controls">
+                                <div class="timeline">
+                                    <div class="bar">
+                                        <div class="inner"></div>
+                                    </div>
+                                </div>
+                                <div class="timeline-controle">
+                                    <div class="timeline-controle-left">
+                                        <button onclick="play(event)"><i
+                                                class="fa fa-play"></i><i
+                                                class="fa fa-pause"></i></button>
+                                        <button onclick="rewind(event)"><i
+                                                class="fa fa-fast-backward"></i></button>
+                                        <button onclick="forward(event)"><i
+                                                class="fa fa-fast-forward"></i></button>
+
+                                    </div>
+                                    <div class="timeline-controle-right">
+
+                                        <button onclick="fullScreen(event)"><i
+                                                class="fa fa-expand"></i></button>
+                                        <button onclick="download(event)"><i
+                                                class="fa fa-cloud-download"></i></button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <h1>Description</h1>
+                            <p>{{cour.description4}}</p>
+                            <button class="next-course">Next course ></button>
+                        </div>
+
+                    </section>
+                    <section class="details-info hide" aria-hidden="true">
+                        <h1>{{cour.title5}}</h1>
+
+                        <div class="videoBox">
+                            {% if cour.title5 is not None %}
+                            <video onclick="play(event)"
+                                src="{{cour.video5.url}}"
+                                id="video"></video>
+                            {% else %}
+                            <span class="total hide">None</span>
+                            {% endif %}
+                            <div class="controls">
+                                <div class="timeline">
+                                    <div class="bar">
+                                        <div class="inner"></div>
+                                    </div>
+                                </div>
+                                <div class="timeline-controle">
+                                    <div class="timeline-controle-left">
+                                        <button onclick="play(event)"><i
+                                                class="fa fa-play"></i><i
+                                                class="fa fa-pause"></i></button>
+                                        <button onclick="rewind(event)"><i
+                                                class="fa fa-fast-backward"></i></button>
+                                        <button onclick="forward(event)"><i
+                                                class="fa fa-fast-forward"></i></button>
+
+                                    </div>
+                                    <div class="timeline-controle-right">
+
+                                        <button onclick="fullScreen(event)"><i
+                                                class="fa fa-expand"></i></button>
+                                        <button onclick="download(event)"><i
+                                                class="fa fa-cloud-download"></i></button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <h1>Description</h1>
+                            <p>{{cour.description5}}</p>
+                            <button class="next-course">Next course ></button>
+                        </div>
+
+                    </section>
+                </div>
             </section>
         </main>
     </body>
 
     <!--  JS  -->
-    <script src="../assets/js/video.js"></script>
+    <script src="{% static 'js/video.js' %}"></script>
+    <script src=" {% static 'js/watching.js' %}"></script>
 </html>
