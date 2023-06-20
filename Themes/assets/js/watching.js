@@ -22,7 +22,7 @@ function showElement(index) {
 
 function updateProgressBar() {
   counter = currentStep * steps;
-  pourcentage.innerHTML = `${counter.toFixed(2)}% Complete`;
+  pourcentage.innerHTML = `${counter}% Complete`;
   const progressWidth = `${counter}%`;
   document.styleSheets[0].addRule(
     ".details-about-progress .progress::after",
@@ -49,10 +49,17 @@ function generateArrays() {
       detailInfo.push(info);
     }
   }
-  console.log(detailCrs,detailInfo);
 }
 
-
+function GetingVedioSize(){
+  const vds = document.querySelectorAll('video');
+  const names = document.querySelectorAll('.vedio-name');
+  vds.forEach((vs,index)=>{ 
+    let val = (vs.duration / 60).toFixed(2).replace(".",":")
+    names[index].childNodes[1].innerHTML = `${names[index].childNodes[1].innerHTML.split(" ")[0]} ( ${val} )`
+    
+  })
+}
 function changeState(index, i) {
   detailCrs[index].childNodes[1].childNodes[1].classList[1] = "";
   detailCrs[index].childNodes[1].childNodes[1].classList.add("fa-check-circle");
@@ -66,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showElement(0);
   updateProgressBar();
   generateArrays()
+  GetingVedioSize()
 });
 
 detailCrs.forEach((vid, index) => {
@@ -112,3 +120,4 @@ back.addEventListener("click", () => {
     back.classList.add("hide");
   }
 });
+
