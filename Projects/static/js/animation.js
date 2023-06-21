@@ -21,13 +21,14 @@ const getStop = () => {
   const firstElemt = StartAnimation.childNodes[1];
   const secondElemt = StartAnimation.childNodes[3];
 
-  gsap.to(getStartAnimation, {
+  gsap.to(StartAnimation, {
     borderRadius: "50px",
     width: "200px",
     height: "70px",
   });
   gsap.to(firstElemt, { y: "10px" });
   gsap.to(secondElemt, { y: "100px" });
+
 };
 
 StartAnimation.addEventListener("mouseover", getStart);
