@@ -1,4 +1,4 @@
-// Select the HTML5 video
+  // Select the HTML5 video
 const video = document.querySelector("#video");
 
 const controls = document.querySelector(".controls");

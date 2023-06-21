@@ -1,70 +1,70 @@
 // NAVBAR HUMBERGAR ON SM XSML MODE
 
-const check = document.getElementById('checkbox4') | ''
-if (check != '') {
-  check.addEventListener('click', (e) => {
-    const wrapper = document.querySelector('.wrapper')
+const check = document.getElementById("checkbox4") | "";
+if (check != "") {
+  check.addEventListener("click", (e) => {
+    const wrapper = document.querySelector(".wrapper");
     if (e.target.checked) {
-      wrapper.classList.add('wrapper-show')
-      animateNavEleme()
-      document.body.style = `overflow : hidden`
+      wrapper.classList.add("wrapper-show");
+      animateNavEleme();
+      document.body.style = `overflow : hidden`;
+    } else {
+      wrapper.classList.remove("wrapper-show");
+      document.body.style = `overflow-x : visble;`;
     }
-    else {
-      wrapper.classList.remove('wrapper-show')
-      document.body.style = `overflow-x : visble;`
-    }
-  })
+  });
 }
 
 // Animate the element on navbar XSM
 
 const animateNavEleme = () => {
-  const li = document.querySelectorAll('.wrapper>ul>li') | '';
-  var tl = gsap.timeline({ repeatDelay: 1 }) | '';
-  if (li != '') {
-    li.forEach(elem => {
-      console.log()
+  const li = document.querySelectorAll(".wrapper>ul>li") | "";
+  var tl = gsap.timeline({ repeatDelay: 1 }) | "";
+  if (li != "") {
+    li.forEach((elem) => {
+      console.log();
       if (elem.children.length === 1) {
-        var tween = gsap.to(
-          elem,
-          {
-            duration: .5,
-            y: 100,
-            x: 200,
-            opacity: 15
-          }
-        );
-        tl.add(tween)
+        var tween = gsap.to(elem, {
+          duration: 0.5,
+          y: 100,
+          x: 200,
+          opacity: 15,
+        });
+        tl.add(tween);
       }
-    })
+    });
   }
-}
-// Remove choices 
+};
+// Apply border radius
 
-function PermuteActiveState(name, trigger = 'active') {
+// Remove choices
+
+function PermuteActiveState(name, trigger = "active") {
   let container = document.querySelectorAll(name);
   // var section = document.querySelectorAll('.containers');
-  container.forEach(elem => {
-    elem.addEventListener('click', (e) => {
+  container.forEach((elem) => {
+    elem.addEventListener("click", (e) => {
       // Log Out from admin page
-      if (e.target.innerText.split(' ') == 'LOGOUT') {
-        window.location.href = '../../pages/home.html'
+      if (e.target.innerText.split(" ") == "LOGOUT") {
+        window.location.href = "Projects/templates/home.html";
       }
-      let choice = document.querySelector(`${name}.${trigger}`).classList[1]
+      let choice = document.querySelector(`${name}.${trigger}`).classList[1];
       document.querySelector(`${name}.${trigger}`).classList.remove(trigger);
-      document.querySelector(`.containers.${choice}`).classList.add('disable')
+      document.querySelector(`.containers.${choice}`).classList.add("disable");
       e.target.classList.add(trigger);
-      document.querySelector(`.containers.${e.target.classList[1]}`).classList.remove('disable')
-      document.querySelector(`.containers.addOn`).classList.add('activeContainer')
-    })
-  })
+      document
+        .querySelector(`.containers.${e.target.classList[1]}`)
+        .classList.remove("disable");
+      document
+        .querySelector(`.containers.addOn`)
+        .classList.add("activeContainer");
+    });
+  });
 }
 
-PermuteActiveState('.choices>.choice')
-
+PermuteActiveState(".choices>.choice");
 
 // show AddProccus
-
 
 function getConcatenation(word) {
   var percentage = 0.5;
@@ -74,90 +74,83 @@ function getConcatenation(word) {
   return `${thirtyPercent}... .${lastThreeLetters}`;
 }
 
-
-
 const addProccus = () => {
-  let add = document.querySelectorAll('.section');
-  let buttonNav = document.querySelectorAll('.navigationCours>.buttonNav');
-  var counter = 0
-  let addLen = add.length - 1
-  let numberCourse = document.querySelector('#coursSections')
+  let add = document.querySelectorAll(".section");
+  let buttonNav = document.querySelectorAll(".navigationCours>.buttonNav");
+  var counter = 0;
+  let addLen = add.length - 1;
+  let numberCourse = document.querySelector("#coursSections");
 
-
-  buttonNav[0].addEventListener('click', () => {
-    if ((counter) == (addLen)) {
-      // Toogle from contunie to confirm 
-      buttonNav[1].classList.remove('disable')
-      buttonNav[2].classList.add('disable')
+  buttonNav[0].addEventListener("click", () => {
+    if (counter == addLen) {
+      // Toogle from contunie to confirm
+      buttonNav[1].classList.remove("disable");
+      buttonNav[2].classList.add("disable");
     }
 
     if (counter <= 0) {
-      add[counter].classList.add('disable')
-      add[0].classList.remove('disable')
+      add[counter].classList.add("disable");
+      add[0].classList.remove("disable");
+    } else {
+      add[counter].classList.add("disable");
+      add[counter - 1].classList.remove("disable");
+      --counter;
     }
-    else {
-      add[counter].classList.add('disable')
-      add[counter - 1].classList.remove('disable')
-      --counter
-    }
-  })
+  });
 
-  buttonNav[1].addEventListener('click', () => {
-    console.log(`The length of element is : ${addLen}\nThe counter is : ${counter}`)
+  buttonNav[1].addEventListener("click", () => {
+    console.log(
+      `The length of element is : ${addLen}\nThe counter is : ${counter}`
+    );
     if (counter >= addLen) {
-      // Toogle from contunie to confirm 
-      buttonNav[1].classList.add('disable')
-      buttonNav[2].classList.toggle('disable')
+      // Toogle from contunie to confirm
+      buttonNav[1].classList.add("disable");
+      buttonNav[2].classList.toggle("disable");
 
-      add[addLen].classList.remove('disable')
-      console.warn('im the last element pelease top??')
-    }
-    else {
+      add[addLen].classList.remove("disable");
+      console.warn("im the last element pelease top??");
+    } else {
       console.log(counter);
-      add[counter].classList.add('disable')
-      add[counter + 1].classList.remove('disable')
-      ++counter
+      add[counter].classList.add("disable");
+      add[counter + 1].classList.remove("disable");
+      ++counter;
     }
-  })
+  });
 
-  buttonNav[2].addEventListener('click', () => {
-    const lottie = document.querySelector('lottie-player');
-    const inputSecction = document.querySelector('.inputSection');
+  buttonNav[2].addEventListener("click", () => {
+    const lottie = document.querySelector("lottie-player");
+    const inputSecction = document.querySelector(".inputSection");
 
-    buttonNav[0].classList.add('disable')
-    buttonNav[2].classList.add('disable')
-    inputSecction.classList.add('disable')
+    buttonNav[0].classList.add("disable");
+    buttonNav[2].classList.add("disable");
+    inputSecction.classList.add("disable");
 
-    document.querySelector('.doneSection').classList.remove('disable')
-    lottie.play()
+    document.querySelector(".doneSection").classList.remove("disable");
+    lottie.play();
+  });
 
+  numberCourse.addEventListener("change", (e) => {
+    if (e.target.value == "undefined") {
+      addLen += 0;
+    } else {
+      addLen += parseInt(e.target.value);
+      createCours(parseInt(e.target.value));
+      add = document.querySelectorAll(".section");
 
-
-  })
-
-  numberCourse.addEventListener('change', (e) => {
-    if (e.target.value == 'undefined') {
-      addLen += 0
-    }
-    else {
-      addLen += parseInt(e.target.value)
-      createCours(parseInt(e.target.value))
-      add = document.querySelectorAll('.section')
-
-      let fileLabels = document.querySelectorAll('#file')
-      let fileCustom = document.querySelectorAll('.file-custom')
+      let fileLabels = document.querySelectorAll("#file");
+      let fileCustom = document.querySelectorAll(".file-custom");
 
       fileLabels.forEach((elem, index) =>
-        elem.addEventListener('change', (e) => {
-          var value = e.target.files[0].name
+        elem.addEventListener("change", (e) => {
+          var value = e.target.files[0].name;
           fileCustom[index].innerText = getConcatenation(value);
         })
-      )
+      );
     }
-  })
-}
+  });
+};
 
-addProccus()
+addProccus();
 
 // Genarte name avatare
 
@@ -177,16 +170,15 @@ function generate() {
     "#4B0082", // Indigo
     "#800000", // Maroon
     "#FF1493", // Deep Pink
-    "#FF6347"  // Tomato
+    "#FF6347", // Tomato
   ];
-
 
   // Generate a random index within the array length
   const randomIndex = Math.floor(Math.random() * colors.length);
   // Retrieve the random color using the random index
   var name = document.querySelector(".userName").innerHTML;
-  console.log(name)
-  var bcgColor = colors[randomIndex]
+  console.log(name);
+  var bcgColor = colors[randomIndex];
   var textColor = "#FFFF";
   // get name initials
   const myNames = name.split(" ");
@@ -225,115 +217,109 @@ function generateAvatar(
   context.textBaseline = "middle";
   context.fillText(text, canvas.width / 2, canvas.height / 2);
   return canvas.toDataURL("image/png");
-
 }
 
-generate()
-
-
-
-
-
+generate();
 
 // Create Course Element
 
-
 // TODO : Create Element from THE BOM
 
-
 function createCours(numberCours) {
-
-  const parentElement = document.querySelector('.inputSection');
+  const parentElement = document.querySelector(".inputSection");
 
   for (let index = 0; index < numberCours; index++) {
     // Create elements
-    const sectionDiv = document.createElement('div');
-    sectionDiv.classList.add('courGeanarate', 'section', 'disable');
+    const sectionDiv = document.createElement("div");
+    sectionDiv.classList.add("courGeanarate", "section", "disable");
 
-    const heading = document.createElement('h1');
+    const heading = document.createElement("h1");
     heading.textContent = `Section ${index + 1} :`;
 
-    const hr = document.createElement('hr');
+    const hr = document.createElement("hr");
 
-    const inputGroup1 = document.createElement('div');
-    inputGroup1.classList.add('inputGroup');
+    const inputGroup1 = document.createElement("div");
+    inputGroup1.classList.add("inputGroup");
 
-    const label1 = document.createElement('label');
-    label1.setAttribute('for', `sectionCoursTitle${index + 1}`);
-    label1.textContent = 'Title';
+    const label1 = document.createElement("label");
+    label1.setAttribute("for", `sectionCoursTitle${index + 1}`);
+    label1.textContent = "Title";
 
-    const input1 = document.createElement('input');
-    input1.setAttribute('type', 'text');
-    input1.setAttribute('name', `sectionCoursTitle${index + 1}`);
-    input1.setAttribute('id', `sectionCoursTitle${index + 1}`);
-    input1.setAttribute('placeholder', "e.g. 'Using models'");
-    input1.setAttribute('autofocus', '');
-    input1.setAttribute('required', '');
+    const input1 = document.createElement("input");
+    input1.setAttribute("type", "text");
+    input1.setAttribute("name", `sectionCoursTitle${index + 1}`);
+    input1.setAttribute("id", `sectionCoursTitle${index + 1}`);
+    input1.setAttribute("placeholder", "e.g. 'Using models'");
+    input1.setAttribute("autofocus", "");
+    input1.setAttribute("required", "");
 
-    const errorSpan1 = document.createElement('span');
-    errorSpan1.classList.add('error', 'disable');
+    const errorSpan1 = document.createElement("span");
+    errorSpan1.classList.add("error", "disable");
 
-    const errorIcon1 = document.createElement('i');
-    errorIcon1.classList.add('fa-solid', 'fa-circle-exclamation');
+    const errorIcon1 = document.createElement("i");
+    errorIcon1.classList.add("fa-solid", "fa-circle-exclamation");
 
-    const errorText1 = document.createTextNode('This field is required');
+    const errorText1 = document.createTextNode("This field is required");
 
     errorSpan1.appendChild(errorIcon1);
     errorSpan1.appendChild(errorText1);
 
-    const inputGroup2 = document.createElement('div');
-    inputGroup2.classList.add('inputGroup');
+    const inputGroup2 = document.createElement("div");
+    inputGroup2.classList.add("inputGroup");
 
-    const label2 = document.createElement('label');
-    label2.setAttribute('for', `sectionCoursDescription${index + 1}`);
-    label2.textContent = 'Add Description';
+    const label2 = document.createElement("label");
+    label2.setAttribute("for", `sectionCoursDescription${index + 1}`);
+    label2.textContent = "Add Description";
 
-    const textarea = document.createElement('textarea');
-    textarea.setAttribute('name', `sectionCoursDescription${index + 1}`);
-    textarea.setAttribute('id', `sectionCoursDescription${index + 1}`);
-    textarea.setAttribute('placeholder', "e.g. 'Learn how to use models on django and create database...'");
-    textarea.setAttribute('autofocus', '');
-    textarea.setAttribute('rows', '15');
-    textarea.setAttribute('cols', '15');
-    textarea.setAttribute('required', '');
+    const textarea = document.createElement("textarea");
+    textarea.setAttribute("name", `sectionCoursDescription${index + 1}`);
+    textarea.setAttribute("id", `sectionCoursDescription${index + 1}`);
+    textarea.setAttribute(
+      "placeholder",
+      "e.g. 'Learn how to use models on django and create database...'"
+    );
+    textarea.setAttribute("autofocus", "");
+    textarea.setAttribute("rows", "15");
+    textarea.setAttribute("cols", "15");
+    textarea.setAttribute("required", "");
 
-    const errorSpan2 = document.createElement('span');
-    errorSpan2.classList.add('error', 'disable');
+    const errorSpan2 = document.createElement("span");
+    errorSpan2.classList.add("error", "disable");
 
-    const errorIcon2 = document.createElement('i');
-    errorIcon2.classList.add('fa-solid', 'fa-circle-exclamation');
+    const errorIcon2 = document.createElement("i");
+    errorIcon2.classList.add("fa-solid", "fa-circle-exclamation");
 
-    const errorText2 = document.createTextNode('This field is required');
+    const errorText2 = document.createTextNode("This field is required");
 
     errorSpan2.appendChild(errorIcon2);
     errorSpan2.appendChild(errorText2);
 
-    const inputGroup3 = document.createElement('div');
-    inputGroup3.classList.add('inputGroup');
+    const inputGroup3 = document.createElement("div");
+    inputGroup3.classList.add("inputGroup");
 
-    const label3 = document.createElement('label');
-    label3.setAttribute('for', `sectionCoursVedo${index + 1}`);
-    label3.textContent = 'Upload cours';
+    const label3 = document.createElement("label");
+    label3.setAttribute("for", `sectionCoursVedo${index + 1}`);
+    label3.textContent = "Upload cours";
 
-    const fileLabel = document.createElement('label');
-    fileLabel.classList.add('file');
+    const fileLabel = document.createElement("label");
+    fileLabel.classList.add("file");
 
-    const fileInput = document.createElement('input');
-    fileInput.setAttribute('type', 'file');
-    fileInput.setAttribute('id', 'file');
-    fileInput.setAttribute('name', `file${index+1}`);
-    fileInput.setAttribute('aria-label', 'File browser example');
+    const fileInput = document.createElement("input");
+    fileInput.setAttribute("type", "file");
+    fileInput.setAttribute("id", "file");
+    fileInput.setAttribute("name", `file${index+1}`);
+    fileInput.setAttribute("aria-label", "File browser example");
 
-    const fileSpan = document.createElement('span');
-    fileSpan.classList.add('file-custom');
+    const fileSpan = document.createElement("span");
+    fileSpan.classList.add("file-custom");
 
-    const errorSpan3 = document.createElement('span');
-    errorSpan3.classList.add('error', 'disable');
+    const errorSpan3 = document.createElement("span");
+    errorSpan3.classList.add("error", "disable");
 
-    const errorIcon3 = document.createElement('i');
-    errorIcon3.classList.add('fa-solid', 'fa-circle-exclamation');
+    const errorIcon3 = document.createElement("i");
+    errorIcon3.classList.add("fa-solid", "fa-circle-exclamation");
 
-    const errorText3 = document.createTextNode('This field is required');
+    const errorText3 = document.createTextNode("This field is required");
 
     errorSpan3.appendChild(errorIcon3);
     errorSpan3.appendChild(errorText3);
@@ -365,17 +351,65 @@ function createCours(numberCours) {
   }
 }
 
-
 // appear pass change
 
 function appearPassChange() {
-  var span = document.getElementById('changePass');
+  var span = document.getElementById("changePass");
 
-  span.addEventListener('click', (e) => {
-    e.target.style.display = "none"
-    document.querySelector('.changePassword').style.display = "block"
-  })
-
+  span.addEventListener("click", (e) => {
+    e.target.style.display = "none";
+    document.querySelector(".changePassword").style.display = "block";
+  });
 }
-appearPassChange()
+appearPassChange();
 
+// smoth scrolling
+document.querySelector('a[href="#here"]').addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const targetId = this.getAttribute("href").substring(1);
+  console.log(targetId);
+  const targetElement = document.getElementById(targetId);
+  console.log(targetElement);
+
+  if (targetElement) {
+    const offsetTop = targetElement.offsetTop;
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }
+});
+// Flipp button 
+const StartAnimation = document.querySelector(".container-getStart");
+
+const getStartAnimation = () => {
+  const firstElemt = getStartAnimation.childNodes[1];
+  const secondElemt = getStartAnimation.childNodes[3];
+
+
+  gsap.to(getStartAnimation, {
+    borderRadius: "50%",
+    width: "50px",
+    height: "50px",
+  });
+  gsap.to(firstElemt, { y: "-100px" });
+
+  gsap.to(secondElemt, { y: "-25px" });
+};
+
+const stopAnimation = () => {
+  const firstElemt = getStartAnimation.childNodes[1];
+  const secondElemt = getStartAnimation.childNodes[3];
+
+  gsap.to(getStartAnimation, {
+    borderRadius: "50px",
+    width: "200px",
+    height: "70px",
+  });
+  gsap.to(firstElemt, { y: "10px" });
+  gsap.to(secondElemt, { y: "100px" });
+};
+
+getStartAnimation.addEventListener("mouseover", StartAnimation);
+getStartAnimation.addEventListener("mouseout", stopAnimation);

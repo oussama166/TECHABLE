@@ -1,8 +1,355 @@
-{% extends 'base.html' %} 
+{% load static %}
+<!-- Static code -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+            text">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Font Icon8 -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+            integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Google Fonts   -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+                    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+            <!-- Normalize css file A modern, HTML5-ready alternative to CSS resets -->
+            <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+                <!-- font-awesome The iconic SVG, font, and CSS toolkit -->
+<title>Home Page</title>
+    </head>
+    <!-- Static code -->
+    <body>
+        <!-- NavBar  -->
 
-{% block mainContent %}
+        <nav>
+            <div class="navlg">
+                <div class="navSection right-section navlg">
+                    <h1 class='navTitle'>tech:learning</h1>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Prices</a></li>
+                        <li><a href="#">Challangess</a></li>
+                    </ul>
+                </div>
+                <div class="navSection left-section">
+                    <button class="button"> <a href="{% url 'connection' %}"> Log in
+                        </a></button>
+                    <button class="button"><a href="{% url 'register' %}"> join
+                            for free </a></button>
+                </div>
+            </div>
 
-<h1>Hello is the main section into</h1>
+            <!-- For mobile design -->
 
+            <div class="navmb">
+                <div class="navSection right-section">
+                    <h1 class='navTitle'>tech:learning</h1>
+                </div>
+                <div class="navSection left-section">
+                    <button class="button"><a href="#">join for free</a></button>
+                    <div class="humbrger">
+                        <input type="checkbox" id="checkbox4" class="checkbox4
+                            visuallyHidden">
+                        <label for="checkbox4">
+                            <div class="hamburger hamburger4">
+                                <span class="bar bar1"></span>
+                                <span class="bar bar2"></span>
+                                <span class="bar bar3"></span>
+                                <span class="bar bar4"></span>
+                                <span class="bar bar5"></span>
+                            </div>
+                        </label>
+                        <div aria-hidden="true" class="wrapper">
+                            <ul>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">Prices</a></li>
+                                <li><a href="#">Challangess</a></li>
+                                <li>
+                                    <button>log in</button>
+                                    <button>join for free</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-{% endblock mainContent %}
+        <!-- End NavBar  -->
+
+        <div class="container">
+            <div class="container-header">
+                <div class="container-left">
+                    <img
+                        src="{% static 'img/poster1.png' %}">
+                </div>
+                <div class="container-right">
+                    <h1>
+                        Share what you know.<sup>TM</sup>
+                    </h1>
+
+                    <p>
+                        Transform your knowledge into a thriving business with
+                        the
+                        best online course platform for creators everywhere.
+                    </p>
+                </div>
+                <a class="container-getStart" href="#here">
+                    <button>START LEARN NOW</button>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+            <!-- Dynamic Data Entries -->
+            <div class="container-data">
+                <p>
+                    Multipule Coureses in various Domain
+                </p>
+                <div class="containers-domains">
+                    <div class="conatiner-domain">
+                        <div class="conatiner-card">
+                            <div class="lang">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+                            <span>WebDesing</span>
+                        </div>
+                    </div>
+                    <div class="conatiner-domain">
+                        <div class="conatiner-card">
+                            <div class="lang">
+                                <img src="{% static 'img/icons8-python.svg' %}">
+                            </div>
+                            <span>Machine learning</span>
+                        </div>
+                    </div>
+                    <div class="conatiner-domain">
+                        <div class="conatiner-card">
+                            <div class="lang">
+                                <i class="fa-brands fa-ubuntu"></i>
+                                <i class="fa-solid fa-block-brick-fire"></i>
+                            </div>
+                            <span>Cyber Security</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="conatiner-courses" id="here">
+            <h1>Let Start with some courses</h1>
+            <div class="container-courses-list">
+                {% for i in cour  %}
+                <div class="courses-card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-info">
+                        <div class="info">
+                            <span class="info-name">
+                                Learn {{i.name}} with toby
+                            </span>
+                            <div class="info-price">
+                                <span class="material-symbols-outlined">
+                                    attach_money
+                                </span>
+                                {{i.price}}
+                            </div>
+                        </div>
+                        <div class="level">
+                            {% if "beginner" in i.diff  %}
+                            <span class="material-symbols-outlined">
+                                signal_cellular_1_bar
+                            </span>
+                            {% elif "intermediate" in i.diff %}
+                            <span class="material-symbols-outlined">
+                                signal_cellular_3_bar
+                            </span>
+                            {% elif "advanced" in i.diff %}
+                            <span class="material-symbols-outlined">
+                                signal_cellular_4_bar
+                            </span>
+                            {% endif %}
+                            {{i.diff}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% comment %} <div class="courses-card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-info">
+                        <div class="info">
+                            <span class="info-name">
+                                Learn Java script with toby
+                            </span>
+                            <div class="info-price">
+                                <span class="material-symbols-outlined">
+                                    attach_money
+                                </span>
+                                2.5
+                            </div>
+                        </div>
+                        <div class="level">
+                            <span class="material-symbols-outlined">
+                                signal_cellular_1_bar
+                            </span>
+                            easy
+                        </div>
+                    </div>
+                </div>
+                <div class="courses-card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-info">
+                        <div class="info">
+                            <span class="info-name">
+                                Learn Java script with toby
+                            </span>
+                            <div class="info-price">
+                                <span class="material-symbols-outlined">
+                                    attach_money
+                                </span>
+                                2.5
+                            </div>
+                        </div>
+                        <div class="level">
+                            <span class="material-symbols-outlined">
+                                signal_cellular_4_bar
+                            </span>
+                            easy
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+
+        <!-- Share  -->
+        <div class="container-share">
+            <p>
+                Share what you know.™
+                <br/>
+                Sign up free today.
+            </p>
+            <a href="{% url 'register' %}">
+            <button>Start For Free</button></a>
+        </div>
+
+        <!-- Footer -->
+
+        <footer>
+            <div class="footer_links">
+                <div class="footer_description">
+                    <div class="footer_header">
+                        <h1>tech:learning</h1>
+                    </div>
+                    <div class="description_footer">
+                        <p>
+                            Join the more than 100,000 creators who use
+                            TeachLearning
+                            to share their knowledge. Easily create an online
+                            course or coaching business with our powerful yet
+                            simple all-in-one platform.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="footer_link">
+                    <div>
+                        <div class="header">
+                            <span>Explore</span>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">Pricing</a></li>
+                                <li><a href="#">Examples</a></li>
+                                <li><a href="#">Newsletter</a></li>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">Podcast</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="header">
+                            <span>Company</span>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li> <a href="#"> About</a></li>
+                                <li> <a href="#"> Careers</a></li>
+                                <li> <a href="#"> Blog</a></li>
+                                <li> <a href="#"> Press</a></li>
+                                <li> <a href="#"> Partners</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="header">
+                            <span>Support</span>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <li> <a href="#"> Knowledge Base</a></li>
+                                <li> <a href="#"> Contact Support</a></li>
+                                <li> <a href="#"> Contact Sales</a></li>
+                                <li> <a href="#"> Privacy Policy</a></li>
+                                <li> <a href="#"> Terms of Use </a></li>
+                                <li> <a href="#"> Content Guidelines </a></li>
+                                <li> <a href="#"> House Rules </a></li>
+                                <li> <a href="#"> Cookies Policy </a></li>
+                                <li> <a href="#"> Ethics Line </a></li>
+                                <li> <a href="#"> Accessibility </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_footer">
+                <hr>
+                <div class="footer_footer_elements">
+                    <div class="footer_copyright">
+                        <span>Copyright © 2023 Teachable, Inc. All rights
+                            reserved.</span>
+                    </div>
+                    <div class="footer_icons">
+                        <a href="#">
+                            <i class="fa-brands fa-youtube icon"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-facebook icon"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-pinterest icon"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-instagram icon"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter icon"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin icon"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-tiktok icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- End Footer -->
+
+        <!-- Script -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>

@@ -1,3 +1,13 @@
+/*
+
+TODO : FIXE FUNCTION GETSIZEOFVIDEO LINE[ 63-> 85 ] DECLARATION [ 99 ]
+
+*/
+
+
+
+
+
 const back = document.querySelector(".move-back");
 const next = document.querySelector(".move-next");
 const total = parseInt(document.querySelector(".total").innerHTML);
@@ -51,15 +61,29 @@ function generateArrays() {
   }
 }
 
-function GetingVedioSize(){
-  const vds = document.querySelectorAll('video');
-  const names = document.querySelectorAll('.vedio-name');
-  vds.forEach((vs,index)=>{ 
-    let val = (vs.duration / 60).toFixed(2).replace(".",":")
-    names[index].childNodes[1].innerHTML = `${names[index].childNodes[1].innerHTML.split(" ")[0]} ( ${val} )`
-    
-  })
-}
+// function GetVideoSize() {
+//   const vds = document.querySelectorAll('video');
+//   const names = document.querySelectorAll('.video-name');
+//   console.log(names[1])
+  
+//   vds.forEach((vs, index) => { 
+//       let duration = parseFloat(vs.duration);
+      
+//       if (isNaN(duration)) {
+//         console.log('Invalid duration for video', vs);
+//         return;
+//       }
+      
+//       let hours = (duration / 3600);
+//       let minutes = (duration % 3600) / 60;
+//       let seconds = duration % 60;
+//       let format = `(${hours.toFixed(2)} : ${minutes.toFixed(2)} : ${seconds.toFixed(2)})`;
+      
+//       console.log(format);
+//       names[index].childNodes[1].innerHTML = format
+//     });
+// }
+
 function changeState(index, i) {
   detailCrs[index].childNodes[1].childNodes[1].classList[1] = "";
   detailCrs[index].childNodes[1].childNodes[1].classList.add("fa-check-circle");
@@ -73,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showElement(0);
   updateProgressBar();
   generateArrays()
-  GetingVedioSize()
+  // GetVideoSize()
 });
 
 detailCrs.forEach((vid, index) => {

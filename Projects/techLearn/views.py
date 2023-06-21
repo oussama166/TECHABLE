@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect
+from compte.models import cour
 # Create your views here.
 def home(request):
-  return render(request,'home.html',{})
+  cours=cour.objects.all()
+  return render(request,'home.html',context={"cour":cours})
