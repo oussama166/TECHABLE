@@ -35,41 +35,6 @@ const animateNavEleme = () => {
     });
   }
 };
-const getStartAnimation = document.querySelector(".container-getStart");
-
-const getStart = () => {
-  const firstElemt = getStartAnimation.childNodes[1];
-  const secondElemt = getStartAnimation.childNodes[3];
-
-  var tl = gsap.timeline({ repeatDelay: 1 });
-
-  gsap.to(getStartAnimation, {
-    borderRadius: "50%",
-    width: "50px",
-    height: "50px",
-  });
-  gsap.to(firstElemt, { y: "-100px" });
-
-  gsap.to(secondElemt, { y: "-25px" });
-};
-
-const resetAnimation = () => {
-  const firstElemt = getStartAnimation.childNodes[1];
-  const secondElemt = getStartAnimation.childNodes[3];
-
-  gsap.to(getStartAnimation, {
-    borderRadius: "50px",
-    width: "200px",
-    height: "70px",
-  });
-  gsap.to(firstElemt, { y: "10px" });
-  gsap.to(secondElemt, { y: "100px" });
-};
-
-getStartAnimation.addEventListener("mouseover", getStart);
-getStartAnimation.addEventListener("mouseout", resetAnimation);
-
-// Apply border radius
 
 // Remove choices
 
@@ -108,83 +73,6 @@ function getConcatenation(word) {
   return `${thirtyPercent}... .${lastThreeLetters}`;
 }
 
-const addProccus = () => {
-  let add = document.querySelectorAll(".section");
-  let buttonNav = document.querySelectorAll(".navigationCours>.buttonNav");
-  var counter = 0;
-  let addLen = add.length - 1;
-  let numberCourse = document.querySelector("#coursSections");
-
-  buttonNav[0].addEventListener("click", () => {
-    if (counter == addLen) {
-      // Toogle from contunie to confirm
-      buttonNav[1].classList.remove("disable");
-      buttonNav[2].classList.add("disable");
-    }
-
-    if (counter <= 0) {
-      add[counter].classList.add("disable");
-      add[0].classList.remove("disable");
-    } else {
-      add[counter].classList.add("disable");
-      add[counter - 1].classList.remove("disable");
-      --counter;
-    }
-  });
-
-  buttonNav[1].addEventListener("click", () => {
-    console.log(
-      `The length of element is : ${addLen}\nThe counter is : ${counter}`
-    );
-    if (counter >= addLen) {
-      // Toogle from contunie to confirm
-      buttonNav[1].classList.add("disable");
-      buttonNav[2].classList.toggle("disable");
-
-      add[addLen].classList.remove("disable");
-      console.warn("im the last element pelease top??");
-    } else {
-      console.log(counter);
-      add[counter].classList.add("disable");
-      add[counter + 1].classList.remove("disable");
-      ++counter;
-    }
-  });
-
-  buttonNav[2].addEventListener("click", () => {
-    const lottie = document.querySelector("lottie-player");
-    const inputSecction = document.querySelector(".inputSection");
-
-    buttonNav[0].classList.add("disable");
-    buttonNav[2].classList.add("disable");
-    inputSecction.classList.add("disable");
-
-    document.querySelector(".doneSection").classList.remove("disable");
-    lottie.play();
-  });
-
-  numberCourse.addEventListener("change", (e) => {
-    if (e.target.value == "undefined") {
-      addLen += 0;
-    } else {
-      addLen += parseInt(e.target.value);
-      createCours(parseInt(e.target.value));
-      add = document.querySelectorAll(".section");
-
-      let fileLabels = document.querySelectorAll("#file");
-      let fileCustom = document.querySelectorAll(".file-custom");
-
-      fileLabels.forEach((elem, index) =>
-        elem.addEventListener("change", (e) => {
-          var value = e.target.files[0].name;
-          fileCustom[index].innerText = getConcatenation(value);
-        })
-      );
-    }
-  });
-};
-
-addProccus();
 
 // Genarte name avatare
 
@@ -397,20 +285,82 @@ function appearPassChange() {
 }
 appearPassChange();
 
-// smoth scrolling
-document.querySelector('a[href="#here"]').addEventListener("click", function (e) {
-  e.preventDefault();
 
-  const targetId = this.getAttribute("href").substring(1);
-  console.log(targetId);
-  const targetElement = document.getElementById(targetId);
-  console.log(targetElement);
+const addProccus = () => {
+  let add = document.querySelectorAll(".section");
+  let buttonNav =
+    document.querySelectorAll(".navigationCours>.buttonNav") || "";
+  var counter = 0;
+  let addLen = add.length - 1;
+  let numberCourse = document.querySelector("#coursSections");
+  console.log(buttonNav);
+  buttonNav[0].addEventListener("click", () => {
+    if (counter == addLen) {
+      // Toogle from contunie to confirm
+      buttonNav[1].classList.remove("disable");
+      buttonNav[2].classList.add("disable");
+    }
 
-  if (targetElement) {
-    const offsetTop = targetElement.offsetTop;
-    window.scrollTo({
-      top: offsetTop,
-      behavior: "smooth",
-    });
-  }
-});
+    if (counter <= 0) {
+      add[counter].classList.add("disable");
+      add[0].classList.remove("disable");
+    } else {
+      add[counter].classList.add("disable");
+      add[counter - 1].classList.remove("disable");
+      --counter;
+    }
+  });
+
+  buttonNav[1].addEventListener("click", () => {
+    console.log(
+      `The length of element is : ${addLen}\nThe counter is : ${counter}`
+    );
+    if (counter >= addLen) {
+      // Toogle from contunie to confirm
+      buttonNav[1].classList.add("disable");
+      buttonNav[2].classList.toggle("disable");
+
+      add[addLen].classList.remove("disable");
+      console.warn("im the last element pelease top??");
+    } else {
+      console.log(counter);
+      add[counter].classList.add("disable");
+      add[counter + 1].classList.remove("disable");
+      ++counter;
+    }
+  });
+
+  buttonNav[2].addEventListener("click", () => {
+    const lottie = document.querySelector("lottie-player");
+    const inputSecction = document.querySelector(".inputSection");
+
+    buttonNav[0].classList.add("disable");
+    buttonNav[2].classList.add("disable");
+    inputSecction.classList.add("disable");
+
+    document.querySelector(".doneSection").classList.remove("disable");
+    lottie.play();
+  });
+
+  numberCourse.addEventListener("change", (e) => {
+    if (e.target.value == "undefined") {
+      addLen += 0;
+    } else {
+      addLen += parseInt(e.target.value);
+      createCours(parseInt(e.target.value));
+      add = document.querySelectorAll(".section");
+
+      let fileLabels = document.querySelectorAll("#file");
+      let fileCustom = document.querySelectorAll(".file-custom");
+
+      fileLabels.forEach((elem, index) =>
+        elem.addEventListener("change", (e) => {
+          var value = e.target.files[0].name;
+          fileCustom[index].innerText = getConcatenation(value);
+        })
+      );
+    }
+  });
+};
+
+addProccus();
