@@ -1176,7 +1176,7 @@ h1 > sup {
 }
 
 /* Main  */
-main {
+.userHome {
   background-color: var(--bs-gray-300);
   padding: 2rem 2rem;
   height: 100%;
@@ -1188,12 +1188,12 @@ main {
   flex-wrap: wrap;
   gap: 0.25rem;
 }
-section {
+.section {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-section .cards {
+.section .cardsUser {
   width: 100%;
   display: flex;
   align-items: center;
@@ -1203,7 +1203,7 @@ section .cards {
   flex-shrink: 0;
   gap: 5rem;
 }
-section .user-card {
+.section .user-card {
   overflow: hidden;
   margin: 1rem 0;
   width: 24.125rem;

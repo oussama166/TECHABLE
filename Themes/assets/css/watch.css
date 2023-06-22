@@ -244,7 +244,7 @@
 body{
     overflow: hidden;
 }
-main {
+.watchingMain {
     width: 100vw;
     display: flex;  
     flex-direction: column;

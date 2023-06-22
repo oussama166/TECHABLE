@@ -1662,8 +1662,8 @@
 							"left": 254,
 							"top": 384,
 							"width": 100,
-							"height": 50,
-							"text": "about"
+							"height": 53,
+							"text": "connection / inscription /\ndashboard"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -1679,7 +1679,7 @@
 								"$ref": "AAAAAAGHXawrjcHOe1w="
 							},
 							"lineStyle": 1,
-							"points": "185:436;253:420"
+							"points": "185:437;253:421"
 						}
 					]
 				},
