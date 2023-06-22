@@ -7,6 +7,7 @@ An e-learning project created with Django is a web application that enables user
 - [@oussama ouardi](https://www.github.com/oussama166)
 - [@abderahaman mendoubi](https://www.github.com/oussama166)
 - [@yahya bouacha](https://www.github.com/oussama166)
+- [@ali chegdali](https://www.github.com/alicch)
 
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
