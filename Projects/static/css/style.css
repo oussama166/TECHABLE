@@ -1188,12 +1188,12 @@ h1 > sup {
   flex-wrap: wrap;
   gap: 0.25rem;
 }
-section {
+.section {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-section .cardsUser {
+.section .cardsUser {
   width: 100%;
   display: flex;
   align-items: center;
@@ -1203,7 +1203,7 @@ section .cardsUser {
   flex-shrink: 0;
   gap: 5rem;
 }
-section .user-card {
+.section .user-card {
   overflow: hidden;
   margin: 1rem 0;
   width: 24.125rem;

@@ -230,7 +230,7 @@ function createCours(numberCours) {
     const fileInput = document.createElement("input");
     fileInput.setAttribute("type", "file");
     fileInput.setAttribute("id", "file");
-    fileInput.setAttribute("name", `file${index}`);
+    fileInput.setAttribute("name", `file${index+1}`);
     fileInput.setAttribute("aria-label", "File browser example");
 
     const fileSpan = document.createElement("span");
