@@ -73,10 +73,9 @@ function getConcatenation(word) {
   return `${thirtyPercent}... .${lastThreeLetters}`;
 }
 
-
 // Genarte name avatare
 
-function generate() {
+function generate(size = 120) {
   const colors = [
     "#FF0000", // Red
     "#00FF00", // Lime Green
@@ -114,26 +113,29 @@ function generate() {
   document.querySelector(".avatar").src = generateAvatar(
     nameInitials,
     textColor,
-    bcgColor
+    bcgColor,
+    size
   );
 }
 function generateAvatar(
   text,
   foregroundColor = "white",
-  backgroundColor = "black"
+  backgroundColor = "black",
+  size = 120
 ) {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
 
-  canvas.width = 120;
-  canvas.height = 120;
+  canvas.width = size;
+  canvas.height = size;
 
   // Draw background
   context.fillStyle = backgroundColor;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
+  let font = (size != 120) ? (size * 0.5) : 50
   // Draw text
-  context.font = "500 50px sans-serif";
+  context.font = `500 ${font}px sans-serif`;
   context.fillStyle = foregroundColor;
   context.textAlign = "center";
   context.textBaseline = "middle";
@@ -141,7 +143,6 @@ function generateAvatar(
   return canvas.toDataURL("image/png");
 }
 
-generate();
 
 // Create Course Element
 
@@ -283,8 +284,6 @@ function appearPassChange() {
     document.querySelector(".changePassword").style.display = "block";
   });
 }
-appearPassChange();
-
 
 const addProccus = () => {
   let add = document.querySelectorAll(".section");
@@ -363,4 +362,46 @@ const addProccus = () => {
   });
 };
 
-addProccus();
+function progrssState(){
+  const state =document.querySelectorAll('.user-card-difculty>*');
+  const levelState = ["beginaire","intermidate","advanced"]
+  state.forEach((elem)=>{
+    console.log(elem.innerHTML)
+    if(elem.innerHTML === levelState[0]){
+      elem.style =`
+        color : white;
+        background-color : green;
+      `
+
+    }
+    else if(elem.innerHTML == levelState[1]){
+      elem.style =`
+        color : white;
+        background-color : #ffc107;
+      `
+    }
+    else {
+      elem.style =`
+      color : white;
+      background-color : #b30000;
+    `
+    }
+  })
+}
+
+
+const href = (window.location.href).split("/")
+
+
+
+if( href.includes("userHome.html") ){
+  generate(50)
+  progrssState()
+  console.log("hello you are in userHome");
+}
+else if ( href.includes("admin.html") ){
+  generate()
+  appearPassChange()
+  addProccus()
+}
+
