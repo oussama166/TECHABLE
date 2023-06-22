@@ -146,12 +146,13 @@
         <div class="conatiner-courses" id="here">
             <h1>Let Start with some courses</h1>
             <div class="container-courses-list">
-                {% for i in cour  %}
+                {% for i in cour  %}<a href="{% url 'register' %}">
                 <div class="courses-card">
                     <div class="card-header">
                     </div>
                     <div class="card-info">
                         <div class="info">
+                            
                             <span class="info-name">
                                 Learn {{i.name}} with toby
                             </span>
@@ -179,7 +180,7 @@
                             {{i.diff}}
                         </div>
                     </div>
-                </div>
+                </div></a>
                 {% endfor %}
                 {% comment %} <div class="courses-card">
                     <div class="card-header">

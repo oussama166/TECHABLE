@@ -15,7 +15,7 @@ def connection(request):
         user1= authenticate(username=username,email=email,password=password)
         if user1 :
           login(request,user1)
-          return redirect('admin')
+          return redirect('homeu')
     return render(request,'connection.html',{})
 
 def inscription(request):

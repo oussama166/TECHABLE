@@ -35,7 +35,6 @@ const animateNavEleme = () => {
     });
   }
 };
-// Apply border radius
 
 // Remove choices
 
@@ -46,7 +45,7 @@ function PermuteActiveState(name, trigger = "active") {
     elem.addEventListener("click", (e) => {
       // Log Out from admin page
       if (e.target.innerText.split(" ") == "LOGOUT") {
-        window.location.href = "Projects/templates/home.html";
+        window.location.href = "../../pages/home.html";
       }
       let choice = document.querySelector(`${name}.${trigger}`).classList[1];
       document.querySelector(`${name}.${trigger}`).classList.remove(trigger);
@@ -74,87 +73,9 @@ function getConcatenation(word) {
   return `${thirtyPercent}... .${lastThreeLetters}`;
 }
 
-const addProccus = () => {
-  let add = document.querySelectorAll(".section");
-  let buttonNav = document.querySelectorAll(".navigationCours>.buttonNav");
-  var counter = 0;
-  let addLen = add.length - 1;
-  let numberCourse = document.querySelector("#coursSections");
-
-  buttonNav[0].addEventListener("click", () => {
-    if (counter == addLen) {
-      // Toogle from contunie to confirm
-      buttonNav[1].classList.remove("disable");
-      buttonNav[2].classList.add("disable");
-    }
-
-    if (counter <= 0) {
-      add[counter].classList.add("disable");
-      add[0].classList.remove("disable");
-    } else {
-      add[counter].classList.add("disable");
-      add[counter - 1].classList.remove("disable");
-      --counter;
-    }
-  });
-
-  buttonNav[1].addEventListener("click", () => {
-    console.log(
-      `The length of element is : ${addLen}\nThe counter is : ${counter}`
-    );
-    if (counter >= addLen) {
-      // Toogle from contunie to confirm
-      buttonNav[1].classList.add("disable");
-      buttonNav[2].classList.toggle("disable");
-
-      add[addLen].classList.remove("disable");
-      console.warn("im the last element pelease top??");
-    } else {
-      console.log(counter);
-      add[counter].classList.add("disable");
-      add[counter + 1].classList.remove("disable");
-      ++counter;
-    }
-  });
-
-  buttonNav[2].addEventListener("click", () => {
-    const lottie = document.querySelector("lottie-player");
-    const inputSecction = document.querySelector(".inputSection");
-
-    buttonNav[0].classList.add("disable");
-    buttonNav[2].classList.add("disable");
-    inputSecction.classList.add("disable");
-
-    document.querySelector(".doneSection").classList.remove("disable");
-    lottie.play();
-  });
-
-  numberCourse.addEventListener("change", (e) => {
-    if (e.target.value == "undefined") {
-      addLen += 0;
-    } else {
-      addLen += parseInt(e.target.value);
-      createCours(parseInt(e.target.value));
-      add = document.querySelectorAll(".section");
-
-      let fileLabels = document.querySelectorAll("#file");
-      let fileCustom = document.querySelectorAll(".file-custom");
-
-      fileLabels.forEach((elem, index) =>
-        elem.addEventListener("change", (e) => {
-          var value = e.target.files[0].name;
-          fileCustom[index].innerText = getConcatenation(value);
-        })
-      );
-    }
-  });
-};
-
-addProccus();
-
 // Genarte name avatare
 
-function generate() {
+function generate(size = 120) {
   const colors = [
     "#FF0000", // Red
     "#00FF00", // Lime Green
@@ -192,26 +113,29 @@ function generate() {
   document.querySelector(".avatar").src = generateAvatar(
     nameInitials,
     textColor,
-    bcgColor
+    bcgColor,
+    size
   );
 }
 function generateAvatar(
   text,
   foregroundColor = "white",
-  backgroundColor = "black"
+  backgroundColor = "black",
+  size = 120
 ) {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
 
-  canvas.width = 120;
-  canvas.height = 120;
+  canvas.width = size;
+  canvas.height = size;
 
   // Draw background
   context.fillStyle = backgroundColor;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
+  let font = (size != 120) ? (size * 0.5) : 50
   // Draw text
-  context.font = "500 50px sans-serif";
+  context.font = `500 ${font}px sans-serif`;
   context.fillStyle = foregroundColor;
   context.textAlign = "center";
   context.textBaseline = "middle";
@@ -219,7 +143,6 @@ function generateAvatar(
   return canvas.toDataURL("image/png");
 }
 
-generate();
 
 // Create Course Element
 
@@ -307,7 +230,7 @@ function createCours(numberCours) {
     const fileInput = document.createElement("input");
     fileInput.setAttribute("type", "file");
     fileInput.setAttribute("id", "file");
-    fileInput.setAttribute("name", `file${index+1}`);
+    fileInput.setAttribute("name", `file${index}`);
     fileInput.setAttribute("aria-label", "File browser example");
 
     const fileSpan = document.createElement("span");
@@ -361,55 +284,124 @@ function appearPassChange() {
     document.querySelector(".changePassword").style.display = "block";
   });
 }
-appearPassChange();
 
-// smoth scrolling
-document.querySelector('a[href="#here"]').addEventListener("click", function (e) {
-  e.preventDefault();
+const addProccus = () => {
+  let add = document.querySelectorAll(".section");
+  let buttonNav =
+    document.querySelectorAll(".navigationCours>.buttonNav") || "";
+  var counter = 0;
+  let addLen = add.length - 1;
+  let numberCourse = document.querySelector("#coursSections");
+  console.log(buttonNav);
+  buttonNav[0].addEventListener("click", () => {
+    if (counter == addLen) {
+      // Toogle from contunie to confirm
+      buttonNav[1].classList.remove("disable");
+      buttonNav[2].classList.add("disable");
+    }
 
-  const targetId = this.getAttribute("href").substring(1);
-  console.log(targetId);
-  const targetElement = document.getElementById(targetId);
-  console.log(targetElement);
-
-  if (targetElement) {
-    const offsetTop = targetElement.offsetTop;
-    window.scrollTo({
-      top: offsetTop,
-      behavior: "smooth",
-    });
-  }
-});
-// Flipp button 
-const StartAnimation = document.querySelector(".container-getStart");
-
-const getStartAnimation = () => {
-  const firstElemt = getStartAnimation.childNodes[1];
-  const secondElemt = getStartAnimation.childNodes[3];
-
-
-  gsap.to(getStartAnimation, {
-    borderRadius: "50%",
-    width: "50px",
-    height: "50px",
+    if (counter <= 0) {
+      add[counter].classList.add("disable");
+      add[0].classList.remove("disable");
+    } else {
+      add[counter].classList.add("disable");
+      add[counter - 1].classList.remove("disable");
+      --counter;
+    }
   });
-  gsap.to(firstElemt, { y: "-100px" });
 
-  gsap.to(secondElemt, { y: "-25px" });
+  buttonNav[1].addEventListener("click", () => {
+    console.log(
+      `The length of element is : ${addLen}\nThe counter is : ${counter}`
+    );
+    if (counter >= addLen) {
+      // Toogle from contunie to confirm
+      buttonNav[1].classList.add("disable");
+      buttonNav[2].classList.toggle("disable");
+
+      add[addLen].classList.remove("disable");
+      console.warn("im the last element pelease top??");
+    } else {
+      console.log(counter);
+      add[counter].classList.add("disable");
+      add[counter + 1].classList.remove("disable");
+      ++counter;
+    }
+  });
+
+  buttonNav[2].addEventListener("click", () => {
+    const lottie = document.querySelector("lottie-player");
+    const inputSecction = document.querySelector(".inputSection");
+
+    buttonNav[0].classList.add("disable");
+    buttonNav[2].classList.add("disable");
+    inputSecction.classList.add("disable");
+
+    document.querySelector(".doneSection").classList.remove("disable");
+    lottie.play();
+  });
+
+  numberCourse.addEventListener("change", (e) => {
+    if (e.target.value == "undefined") {
+      addLen += 0;
+    } else {
+      addLen += parseInt(e.target.value);
+      createCours(parseInt(e.target.value));
+      add = document.querySelectorAll(".section");
+
+      let fileLabels = document.querySelectorAll("#file");
+      let fileCustom = document.querySelectorAll(".file-custom");
+
+      fileLabels.forEach((elem, index) =>
+        elem.addEventListener("change", (e) => {
+          var value = e.target.files[0].name;
+          fileCustom[index].innerText = getConcatenation(value);
+        })
+      );
+    }
+  });
 };
 
-const stopAnimation = () => {
-  const firstElemt = getStartAnimation.childNodes[1];
-  const secondElemt = getStartAnimation.childNodes[3];
+function progrssState(){
+  const state =document.querySelectorAll('.user-card-difculty>*');
+  const levelState = ["beginner","intermidate","advanced"]
+  state.forEach((elem)=>{
+    console.log(elem.innerHTML)
+    if(elem.innerHTML === levelState[0]){
+      elem.style =`
+        color : white;
+        background-color : green;
+      `
 
-  gsap.to(getStartAnimation, {
-    borderRadius: "50px",
-    width: "200px",
-    height: "70px",
-  });
-  gsap.to(firstElemt, { y: "10px" });
-  gsap.to(secondElemt, { y: "100px" });
-};
+    }
+    else if(elem.innerHTML == levelState[1]){
+      elem.style =`
+        color : white;
+        background-color : #ffc107;
+      `
+    }
+    else {
+      elem.style =`
+      color : white;
+      background-color : #b30000;
+    `
+    }
+  })
+}
 
-getStartAnimation.addEventListener("mouseover", StartAnimation);
-getStartAnimation.addEventListener("mouseout", stopAnimation);
+
+const href = (window.location.href).split("/")
+console.log(href)
+
+
+if( href.includes("user") ){
+  generate(50)
+  progrssState()
+  console.log("hello you are in userHome");
+}
+else if ( href.includes("admins") ){
+  generate()
+  appearPassChange()
+  addProccus()
+}
+
