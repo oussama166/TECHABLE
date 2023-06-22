@@ -82,8 +82,7 @@ def admin(request):
         vd=Video_cour(type=dcour,title1=tv1,description1=dv1,video1=v1,title2=tv2,description2=dv2,video2=v2,title3=tv3,description3=dv3,video3=v3,title4=tv4,description4=dv4,video4=v4,title5=tv5,description5=dv5,video5=v5,name_all_id=tcour)
         vd.save()
       else:
-         print("wtf")
-      user1=authenticate(username=username,email=email,password=password)
+        user1=authenticate(username=username,email=email,password=password)
       if user1 :
           u=USER.objects.all().get(username=username)
           u.set_password(passwordc)
