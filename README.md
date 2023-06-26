@@ -1,27 +1,39 @@
-# 🎓 E-LEARNING (DJANGO)
+# Teachable
 
-An e-learning project created with Django is a web application that enables users to access educational content online. Django is a powerful open-source Python framework designed for efficient web development. You can build an e-learning platform using Django 3.0.
+Teachable is a platform similar to Coursera and Udemy, but with a focus on software engineering. The project is divided into two sides: the front end and the back end.
 
-## Authors
+## Front End
+The front end of Teachable is located in the `themes` folder. It consists of various files including JavaScript, HTML, and CSS. The front-end development of Teachable utilizes the following technologies:
 
-- [@oussama ouardi](https://www.github.com/oussama166)
-- [@abderahaman mendoubi](https://www.github.com/oussama166)
-- [@yahya bouacha](https://www.github.com/oussama166)
-- [@ali chegdali](https://www.github.com/alicch)
+- [![HTML5 Badge](https://img.shields.io/badge/-HTML5-orange)](#) HTML files are used to structure the different pages and components of the Teachable platform.
+- [![CSS3 Badge](https://img.shields.io/badge/-CSS3-blue)](#) The CSS files define the styles and layout for the Teachable front end. They are used to customize the appearance and design of the platform.
+- [![JavaScript Badge](https://img.shields.io/badge/-JavaScript-yellow)](#) The front-end folder includes several JavaScript files that handle client-side functionality and interactivity.
+- [![GSAP.js Badge](https://img.shields.io/badge/-GSAP.js-brightgreen)](#) GSAP (GreenSock Animation Platform) is used for animation effects on the website. It provides powerful tools for creating smooth and interactive animations.
 
-<br>
-<br>
-<br>
-<br>
+## Back End
+The back end of Teachable is located in the `Projects` folder. This folder contains all the Django files and the database. The back end is responsible for handling the server-side logic and database management.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![Green Sock](https://img.shields.io/badge/green%20sock-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+- [![Django Badge](https://img.shields.io/badge/-Django-darkgreen)](#) Django is a Python web framework used to build the back end of Teachable. It provides a high-level development environment and follows the MVC (Model-View-Controller) architectural pattern.
+- [![Database Badge](https://img.shields.io/badge/-Database-lightgray)](#) The Teachable platform relies on a database to store and manage user data, course information, and other relevant data. The specific database technology used may vary based on the project requirements.
 
-<br>
+## Editor
+The development of Teachable involves using the following editor:
 
+- [![VSCode Badge](https://img.shields.io/badge/-Visual%20Studio%20Code-blueviolet)](#) Visual Studio Code (VSCode) is the chosen editor for developing the Teachable platform. It offers a wide range of features and extensions that enhance the development experience.
 
-![Made for VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)
+## Installation and Setup
+To install and set up the Teachable project, follow these steps:
+
+1. **Clone the Repository**: Start by cloning the Teachable project repository from the source control system.
+
+2. **Install Dependencies**: Navigate to the project's root directory and install the required dependencies for the front end and back end separately.
+
+3. **Database Setup**: Configure the database for the Teachable project.
+
+4. **Launch the Development Servers**: Start the front-end and back-end development servers.
+
+5. **Access Teachable**: Open your web browser and visit `http://localhost:3000` to access the Teachable platform.
+
+Please refer to the project's documentation or README file for more specific instructions and customization options.
+
+Good luck with your Teachable project!
